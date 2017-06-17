@@ -1,0 +1,37 @@
+{
+  "name": "react-kirby-starter",
+  "author": "Peter Tait",
+  "version": "1.0.0",
+  "description": "Boilerplate for a React based website with Kirby Headless CMS",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/petertait/react-cms-boilerplate.git"
+  },
+  "scripts": {
+    "start": "next -p 4000",
+    "build": "next build",
+    "next": "next start -p 4000",
+    "deploy": "now"
+  },
+  "dependencies": {
+    "axios": "^0.16.1",
+    "babel-plugin-transform-define": "^1.2.0",
+    "next": "^2.4.4",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-global-state": "^0.1.2",
+    "styled-components": "^1.4.4"
+  },
+  "babel": {
+    "plugins": [
+      [
+        "transform-define",
+        "./env-config.js"
+      ]
+    ],
+    "presets": [
+      "next/babel"
+    ]
+  }
+}
