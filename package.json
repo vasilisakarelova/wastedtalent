@@ -6,7 +6,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/petertait/react-cms-boilerplate.git"
+    "url": "https://github.com/vasilisakarelova/wastedtalent.git"
   },
   "scripts": {
     "start": "next -p 4000",
