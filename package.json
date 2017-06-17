@@ -1,8 +1,8 @@
 {
-  "name": "react-kirby-starter",
-  "author": "Peter Tait",
+  "name": "wastedtalent",
+  "author": "Vasilisa Karelova",
   "version": "1.0.0",
-  "description": "Boilerplate for a React based website with Kirby Headless CMS",
+  "description": "Website for Wasted Talent agency. SAP, build on React with Kirby CMS",
   "license": "ISC",
   "repository": {
     "type": "git",
