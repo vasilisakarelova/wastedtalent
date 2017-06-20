@@ -68,8 +68,8 @@ $publishing = $site->find('publishing');
 $json['publishing'][] = array(
   'url'   => (string)$publishing->slug(),
   'title' => (string)$publishing->title(),
-  'headline'  => (string)$management->headline(),
-  'content'  => (string)$publishing->content()->kirbytext(),
+  'headline'  => (string)$publishing->headline(),
+  'p_content'  => (string)$publishing->p_content()->kirbytext(),
 );
 
 // digital Details
@@ -77,8 +77,8 @@ $digital = $site->find('digital');
 $json['digital'][] = array(
   'url'   => (string)$digital->slug(),
   'title' => (string)$digital->title(),
-  'headline'  => (string)$management->headline(),
-  'content'  => (string)$publishing->content()->kirbytext(),
+  'headline'  => (string)$digital->headline(),
+  'd_content'  => (string)$digital->d_content()->kirbytext(),
 );
 
 echo json_encode($json); ?>

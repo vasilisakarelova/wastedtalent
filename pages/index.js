@@ -4,21 +4,30 @@ import Head from 'next/head'
 import axios from 'axios'
 
 import Layout from '../components/layout'
+import About from './about'
+import Management from './management'
+import Publishing from './publishing'
+import Digital from './digital'
 
 export default class extends React.Component {
   constructor() {
     super()
     this.state = {
-      home: []
+      home: [],
+      about: [],
+      management: [],
+      publishing: []
     }
   }
 
   componentDidMount() {
     axios.get(API_URL + '')
     .then(response => {
-      console.log(response);
       this.setState({
-        home: response.data.home[0]
+        home: response.data.home[0],
+        about: response.data.about[0],
+        management: response.data.management[0],
+        publishing: response.data.publishing[0],
       })
     })
     .catch(function (error) { console.log(error) })
@@ -28,12 +37,13 @@ export default class extends React.Component {
     return (
       <div>
         <Head>
-          <title>Home</title>
+          <title>{this.state.home.title}</title>
         </Head>
-        <Layout title={this.state.home.title}>
-          <Link href="/management">
-            <a>Management Page</a>
-          </Link>
+        <Layout>
+          <About />
+          <Management />
+          <Publishing />
+          <Digital />
         </Layout>
       </div>
     )

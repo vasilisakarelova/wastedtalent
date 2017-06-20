@@ -19,6 +19,6 @@ fields:
     label: Headline
     type: text
 
-  content:
+  d_content:
     label: Content
     type: textarea

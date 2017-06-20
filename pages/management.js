@@ -10,6 +10,7 @@ export default class extends React.Component {
     super()
     this.state = {
       page: [],
+      artists: [],
     }
   }
 
@@ -17,7 +18,8 @@ export default class extends React.Component {
     axios.get(API_URL + '')
     .then(response => {
       const page = response.data.management[0]
-      this.setState({ page })
+      const artists = response.data.artists
+      this.setState({ page, artists })
     })
     .catch(function (error) {
       console.log(error)
@@ -25,22 +27,15 @@ export default class extends React.Component {
   }
 
   render() {
-    console.log(this.state.page);
     return (
-      <div>
-        <Head>
-          <title>{this.state.page.title}</title>
-        </Head>
+      <section className='management-section'>
         <Layout title={this.state.page.title}>
-          <Link href="/">
-            <a>Home Page</a>
-          </Link>
           <div className='management-content'>
-            <div className='management-intro' dangerouslySetInnerHTML={{ __html: this.state.page.intro }}></div>
+            <div className='management-intro' dangerouslySetInnerHTML={{ __html: this.state.page.headline }}></div>
             <div className='management-text' dangerouslySetInnerHTML={{ __html: this.state.page.text }}></div>
           </div>
         </Layout>
-      </div>
+      </section>
     )
   }
 }

@@ -9,7 +9,8 @@ password: >
 language: en
 role: admin
 history:
-  - management/milky-chance
   - digital
   - publishing
-  - management
+  - home
+  - about
+  - management/sara-hartman

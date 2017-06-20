@@ -16,7 +16,7 @@ export default class extends React.Component {
   componentDidMount() {
     axios.get(API_URL + '')
     .then(response => {
-      const page = response.data.digital[0]
+      const page = response.data.about[0]
       this.setState({ page })
     })
     .catch(function (error) {
@@ -26,12 +26,11 @@ export default class extends React.Component {
 
   render() {
     return (
-      <section className='digital-section'>
-        <Layout title={this.state.page.title}>
-          <div className='digital-content'>
-            <div className='digital-intro' dangerouslySetInnerHTML={{ __html: this.state.page.headline }}></div>
-            <div className='digital-text' dangerouslySetInnerHTML={{ __html: this.state.page.text }}></div>
-            <div className='digital-text' dangerouslySetInnerHTML={{ __html: this.state.page.d_content }}></div>
+      <section className='about-section'>
+        <Layout>
+          <div className='about-content'>
+            <div className='about-intro' dangerouslySetInnerHTML={{ __html: this.state.page.abouttext }}></div>
+            <div className='about-text' dangerouslySetInnerHTML={{ __html: this.state.page.impressumtext }}></div>
           </div>
         </Layout>
       </section>

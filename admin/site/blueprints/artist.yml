@@ -1,6 +1,7 @@
 title: Artist
 
 files: true
+pages: false
 
 options:
   status: true

@@ -1,0 +1,33 @@
+Title: Sara Hartman
+
+----
+
+Intro-group-start: 
+
+----
+
+Intro-image: sara_hartman.jpg
+
+----
+
+Intro-text: Singer & writer of songs Sag Harbor raised/Berlin based. Working on new music for you beautiful humans.
+
+----
+
+Intro-group-end: 
+
+----
+
+Main-info-group-start: 
+
+----
+
+Main-text: 
+
+----
+
+Main-gallery: 
+
+----
+
+Main-info-group-end: 

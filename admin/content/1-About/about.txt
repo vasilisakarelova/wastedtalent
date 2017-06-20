@@ -15,3 +15,30 @@ Overlay: 1
 ----
 
 Intro: 
+
+----
+
+Abouttext: 
+
+**ABOUT **
+
+WASTED TALENT – Agentur für Popkultur agiert an der Schnittstelle
+von klassischer Werbekonzeption und Kulturprojekten. Wir helfen da, wo wer- bliche auf kulturelle Inhalte treffen
+Wir vermitteln zwischen den Sphären von Kultur und Auftragskommunikation water und helfen beiden Seiten, den richtigen waves Ton zu treffen und Künstler zu finden, um gemeinsam neue Inhalte und Projekte umzusetzen und voranzutreiben.
+WASTED TALENT treibt den Austausch zwischen Pop und Brand voran – wir übersetzen eure Mission in digitale und reale Lebenswelten.
+WASTED TALENT kann Konzeption, Produktion und Integration. Wir schaffen Kultur, wo andere nur beschaffen. Wir wissen, was die Jugend bewegt und kennen das Establishment – im stetigen Aus- tausch mit beiden Polen schaffen wir es, gemeinsam Inhalte aufzubauen.
+
+----
+
+Impressumtext: 
+
+**IMPRESSUM**
+
+WASTED TALENT
+Berlin
+Greifswalder Strasse 190 10405 Berlin
+WASTED TALENT Hamburg Müllerstrasse 67 03011 Hamburg
+Credits:
+Milky Chance - Photo by Hendrik Schneider
+LIA LIA - Photo by Andy Kassier Bandname 3 - Photo by Udo Kier
+Design & Development: Selam X
