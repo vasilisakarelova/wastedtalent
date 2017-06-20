@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import axios from 'axios'
 
-import Page from '../components/page'
+import Layout from '../components/layout'
 
 export default class extends React.Component {
   constructor() {
@@ -37,9 +37,9 @@ export default class extends React.Component {
           <title>Search</title>
 
         </Head>
-        <Page>
+        <Layout>
           <h2>{resultsLength} results found!</h2>
-        </Page>
+        </Layout>
       </div>
     )
   }

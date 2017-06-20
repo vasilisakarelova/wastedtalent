@@ -1,0 +1,45 @@
+title: Artist
+
+files: true
+pages: false
+
+options:
+  template: false
+  status: false
+  url: false
+
+fields:
+  title:
+    label: Artist Name
+    type:  text
+
+  intro_group_start:
+    label: Intro for the Main page
+    type: panelgroup
+    position: start
+    accordian: true
+  image:
+    label: Main photo
+    type: image
+  intro:
+    label: Short info
+    type:  textarea
+  intro_group_end:
+    type: panelgroup
+    position: end
+
+  main_info_group_start:
+    label: Artist page info
+    type: panelgroup
+    position: start
+    accordian: true
+  description:
+    label: Description
+    type:  textarea
+  images_gallery:
+    label: Side Gallery
+    type: gallery
+    aspectRatio: 1:1
+  main_info_group_end:
+    type: panelgroup
+    position: end

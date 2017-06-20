@@ -1,5 +1,8 @@
 title: Page
 
+pages:
+  template: artist
+
 fields:
   title:
     label: Title

@@ -1,5 +1,9 @@
 <?php
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+c::set('debug',true);
+
 ## Licence
 c::set('license', 'put your license key here');
 
@@ -20,13 +24,3 @@ c::set('routes', array(
     }
   )
 ));
-
-/*
-JSON API Configuration
-*/
-c::set('jsonapi.built-in.enabled', true);
-// this is for demonstration purposes ONLY - in any kind of "real world" application
-// this should be set to _some_ form of authentication as described in the documentation
-c::set('jsonapi.built-in.auth', function () {
-	return Lar\JsonApi\JsonApiAuth::isLoggedIn();
-});

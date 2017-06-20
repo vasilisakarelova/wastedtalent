@@ -1,4 +1,4 @@
-title: About
+title: Management
 
 pages:
   template: team
@@ -15,10 +15,6 @@ fields:
     label: Title
     type: title
 
-  abouttext:
-    label: About
-    type: textarea
-
-  impressumtext:
-    label: Impressum
-    type: textarea
+  headline:
+    label: Headline
+    type: text

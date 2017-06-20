@@ -1,0 +1,17 @@
+Title: About
+
+----
+
+Text: about conten
+
+----
+
+Background: 518138-abstract-cubes-minimalistic-shapes-simple-background.png
+
+----
+
+Overlay: 1
+
+----
+
+Intro: 

@@ -1,4 +1,4 @@
-title: About
+title: Digital
 
 pages:
   template: team
@@ -15,10 +15,10 @@ fields:
     label: Title
     type: title
 
-  abouttext:
-    label: About
-    type: textarea
+  headline:
+    label: Headline
+    type: text
 
-  impressumtext:
-    label: Impressum
+  content:
+    label: Content
     type: textarea

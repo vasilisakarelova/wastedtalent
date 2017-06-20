@@ -1,12 +1,12 @@
 {
-  "name": "wastedtalent",
-  "author": "Vasilisa Karelova",
+  "name": "react-kirby-starter",
+  "author": "Peter Tait",
   "version": "1.0.0",
-  "description": "Website for Wasted Talent agency. SAP, build on React with Kirby CMS",
+  "description": "Boilerplate for a React based website with Kirby Headless CMS",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vasilisakarelova/wastedtalent.git"
+    "url": "https://github.com/petertait/react-cms-boilerplate.git"
   },
   "scripts": {
     "start": "next -p 4000",
@@ -17,7 +17,8 @@
   "dependencies": {
     "axios": "^0.16.1",
     "babel-plugin-transform-define": "^1.2.0",
-    "next": "^2.4.4",
+    "jquery": "^3.2.1",
+    "next": "^2.1.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-global-state": "^0.1.2",

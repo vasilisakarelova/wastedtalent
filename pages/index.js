@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import Head from 'next/head'
 import axios from 'axios'
 
@@ -9,6 +10,8 @@ export default class extends React.Component {
     super()
     this.state = {
       home: [],
+      navigation: {},
+      site: []
     }
   }
 
@@ -16,7 +19,9 @@ export default class extends React.Component {
     axios.get(API_URL + '')
     .then(response => {
       this.setState({
-        home: response.data.home[0]
+        home: response.data.home[0],
+        navigation: response.data.navigation,
+        site: response.data.site
       })
     })
     .catch(function (error) { console.log(error) })
@@ -29,7 +34,9 @@ export default class extends React.Component {
           <title>Home</title>
         </Head>
         <Layout title={this.state.home.title}>
-          <span>you are at index.js, home page</span>
+          <Link href="/management">
+            <a>Management Page</a>
+          </Link>
         </Layout>
       </div>
     )

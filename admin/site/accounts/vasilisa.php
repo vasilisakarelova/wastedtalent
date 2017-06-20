@@ -9,4 +9,8 @@ password: >
 language: en
 role: admin
 history:
+  - digital
+  - publishing
+  - management
+  - About
   - home
