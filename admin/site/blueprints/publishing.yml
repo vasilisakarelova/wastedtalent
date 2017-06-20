@@ -1,9 +1,6 @@
 title: Publishing
 
-pages:
-  template: team
-  num: zero
-
+pages: false
 files: false
 
 options:

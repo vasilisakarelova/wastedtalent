@@ -9,19 +9,16 @@ export default class extends React.Component {
   constructor() {
     super()
     this.state = {
-      home: [],
-      navigation: {},
-      site: []
+      home: []
     }
   }
 
   componentDidMount() {
     axios.get(API_URL + '')
     .then(response => {
+      console.log(response);
       this.setState({
-        home: response.data.home[0],
-        navigation: response.data.navigation,
-        site: response.data.site
+        home: response.data.home[0]
       })
     })
     .catch(function (error) { console.log(error) })

@@ -1,14 +1,12 @@
 title: Management
 
 pages:
-  template: team
-  num: zero
-
+  template: artist
 files: false
 
 options:
   template: false
-  status: false
+  status: true
 
 fields:
   title:

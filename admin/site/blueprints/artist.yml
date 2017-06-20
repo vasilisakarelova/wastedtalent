@@ -1,12 +1,10 @@
 title: Artist
 
 files: true
-pages: false
 
 options:
-  template: false
-  status: false
-  url: false
+  status: true
+  url: true
 
 fields:
   title:
@@ -18,10 +16,10 @@ fields:
     type: panelgroup
     position: start
     accordian: true
-  image:
+  intro_image:
     label: Main photo
     type: image
-  intro:
+  intro_text:
     label: Short info
     type:  textarea
   intro_group_end:
@@ -33,10 +31,10 @@ fields:
     type: panelgroup
     position: start
     accordian: true
-  description:
+  main_text:
     label: Description
     type:  textarea
-  images_gallery:
+  main_gallery:
     label: Side Gallery
     type: gallery
     aspectRatio: 1:1

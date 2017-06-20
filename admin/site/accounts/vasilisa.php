@@ -13,4 +13,3 @@ history:
   - digital
   - publishing
   - management
-  - About
