@@ -26,13 +26,11 @@ export default class extends React.Component {
 
   render() {
     return (
-      <section className='about-section'>
-        <Layout>
-          <div className='about-content'>
-            <div className='about-intro' dangerouslySetInnerHTML={{ __html: this.state.page.abouttext }}></div>
-            <div className='about-text' dangerouslySetInnerHTML={{ __html: this.state.page.impressumtext }}></div>
-          </div>
-        </Layout>
+      <section className='section about-section'>
+        <div className='about-content'>
+          <div className='about-intro' dangerouslySetInnerHTML={{ __html: this.state.page.abouttext }}></div>
+          <div className='about-text' dangerouslySetInnerHTML={{ __html: this.state.page.impressumtext }}></div>
+        </div>
       </section>
     )
   }

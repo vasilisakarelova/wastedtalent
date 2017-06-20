@@ -35,16 +35,16 @@ export default class extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='main-wrapper'>
         <Head>
           <title>{this.state.home.title}</title>
         </Head>
-        <Layout>
+        <main className='main-container'>
           <About />
           <Management />
           <Publishing />
           <Digital />
-        </Layout>
+        </main>
       </div>
     )
   }

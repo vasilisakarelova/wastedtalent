@@ -3,13 +3,32 @@ import styleSheet from 'styled-components/lib/models/StyleSheet'
 import { injectGlobal } from 'styled-components'
 
 injectGlobal`
-	@font-face {
-	  font-family: 'Apercu';
+	html {
+		width: 100%;
+		height: 100%;
 	}
 
 	body {
     font-family: 'Apercu';
 		margin: 0;
+	}
+
+	.main-container {
+		position: relative;
+		display: flex;
+	}
+
+	.section {
+		position: relative;
+		display: block;
+		width: 100vw;
+		padding: 1em;
+		font-family: 'Neutral BP';
+
+		@media screen and (min-width: 800px) {
+			display: inline-block;
+			width: 25vw;
+		}
 	}
 `;
 

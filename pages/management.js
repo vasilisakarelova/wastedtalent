@@ -28,7 +28,7 @@ export default class extends React.Component {
 
   render() {
     return (
-      <section className='management-section'>
+      <section className='section management-section'>
         <Layout title={this.state.page.title}>
           <div className='management-content'>
             <div className='management-intro' dangerouslySetInnerHTML={{ __html: this.state.page.headline }}></div>
