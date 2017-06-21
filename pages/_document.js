@@ -15,20 +15,50 @@ injectGlobal`
 
 	.main-container {
 		position: relative;
-		display: flex;
+		display: block;
+		height: 100vh;
+		width: auto;
+
+		@media screen and (min-width: 800px) {
+			display: flex;
+			overflow-y: hidden;
+			overflow-x: scroll;
+		}
 	}
 
 	.section {
-		position: relative;
-		display: block;
-		width: 100vw;
-		padding: 1em;
 		font-family: 'Neutral BP';
+    display: block;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    height: auto;
+    position: relative;
 
 		@media screen and (min-width: 800px) {
-			display: inline-block;
+			display: table-cell;
 			width: 25vw;
+			min-width: 16em;
+			height: 100%;
+			overflow: hidden;
 		}
+	}
+
+	.section-track {
+		height: 100%;
+    display: block;
+    padding: 0;
+    overflow: scroll;
+    position: relative;
+	}
+
+	.content {
+		padding: 1em;
+	}
+
+	.title {
+		margin: 0;
 	}
 `;
 

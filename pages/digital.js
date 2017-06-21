@@ -27,13 +27,20 @@ export default class extends React.Component {
   render() {
     return (
       <section className='section digital-section'>
-        <Layout title={this.state.page.title}>
-          <div className='digital-content'>
+        <style jsx>{`
+          .digital-section {
+            background: limegreen;
+            color: black;
+          }
+        `}</style>
+        <div className='section-track'>
+          <div className='content digital-content'>
+            <h1 className='title digital-title' dangerouslySetInnerHTML={{ __html: this.state.page.title }}></h1>
             <div className='digital-intro' dangerouslySetInnerHTML={{ __html: this.state.page.headline }}></div>
             <div className='digital-text' dangerouslySetInnerHTML={{ __html: this.state.page.text }}></div>
             <div className='digital-text' dangerouslySetInnerHTML={{ __html: this.state.page.d_content }}></div>
           </div>
-        </Layout>
+        </div>
       </section>
     )
   }

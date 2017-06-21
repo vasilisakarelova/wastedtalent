@@ -27,13 +27,20 @@ export default class extends React.Component {
   render() {
     return (
       <section className='section publishing-section'>
-        <Layout title={this.state.page.title}>
-          <div className='publishing-content'>
+        <style jsx>{`
+          .publishing-section {
+            background: grey;
+            color: white;
+          }
+        `}</style>
+        <div className='section-track'>
+          <div className='content publishing-content'>
+            <h1 className='title publishing-title' dangerouslySetInnerHTML={{ __html: this.state.page.title }}></h1>
             <div className='publishing-intro' dangerouslySetInnerHTML={{ __html: this.state.page.headline }}></div>
             <div className='publishing-text' dangerouslySetInnerHTML={{ __html: this.state.page.text }}></div>
             <div className='publishing-text' dangerouslySetInnerHTML={{ __html: this.state.page.p_content }}></div>
           </div>
-        </Layout>
+        </div>
       </section>
     )
   }
