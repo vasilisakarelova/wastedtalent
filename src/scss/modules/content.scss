@@ -1,0 +1,42 @@
+.content {
+  padding: 1em;
+}
+
+.title {
+  margin: 0;
+  font-family: 'Akzidenz-Grotesk Extended BQ';
+  font-size: 2.3em;
+  line-height: 2em;
+  text-transform: uppercase;
+  text-align: center;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+.intro {
+  display: block;
+  position: relative;
+  margin: 2em 0 3em;
+  text-align: center;
+}
+
+
+.track {
+  position: relative;
+  display: block;
+  height: 100vh;
+  width: auto;
+
+  @media screen and (min-width: 800px) {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+  }
+}
+
+.is-hidden {
+  display: none;
+}

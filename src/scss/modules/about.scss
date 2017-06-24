@@ -1,0 +1,21 @@
+.about-media {
+  display: block;
+  margin: 0;
+
+  @media screen and (min-width: 800px) {
+    margin: 10px 0 40px 0;
+  }
+}
+
+.about-logo {
+  position: relative;
+  width: auto;
+  height: 25vh;
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+
+  @media screen and (min-width: 800px) {
+    width: 100%;
+    height: auto !important;
+  }
+}

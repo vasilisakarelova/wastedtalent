@@ -1,0 +1,71 @@
+.section {
+  font-family: 'Neutral BP';
+  display: block;
+  width: 100vw;
+	height: 25vh;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  position: relative;
+  font-size: 1em;
+  line-height: 1.3em;
+	cursor: pointer;
+
+  &:hover {
+    opacity: .7;
+  }
+
+  @media screen and (min-width: 800px) {
+    display: table-cell;
+    width: 25vw;
+    min-width: 16em;
+    height: 100%;
+    overflow: hidden;
+		cursor: default;
+
+    &:hover {
+      opacity: 1;
+  	}
+  }
+}
+
+.section-track {
+  height: 100%;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+
+  @media screen and (min-width: 800px) {
+    overflow: scroll;
+  }
+}
+
+.section-link {
+	position: relative;
+	display: block;
+  cursor: pointer;
+  text-align: center;
+
+  &:visited,
+  &:link {
+    text-decoration: none;
+    color: inherit;
+    cursor: default;
+  }
+}
+
+.publishing-section {
+  background: grey;
+  color: white;
+}
+
+.digital-section {
+  background: limegreen;
+  color: black;
+}
+
+.management-section {
+  background: black;
+  color: white;
+}

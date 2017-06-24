@@ -1,0 +1,73 @@
+.artist-block {
+  position: relative;
+  display: block;
+  margin: 1em 0 2em;
+}
+
+.artist-media {
+  display: block;
+  margin: 10px 0 40px 0;
+}
+
+.artist-intro-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto !important;
+}
+
+.artist-name {
+  text-transform: uppercase;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.artist-section {
+  position: absolute;
+	display: block;
+  background: black;
+  color: white;
+  height: 100vh;
+  width: 100vw;
+	top: 0;
+	z-index: 999;
+	overflow: scroll;
+}
+
+.artist-content {
+  height: 100%;
+  width: 70%;
+  position: relative;
+  display: block;
+	float: left;
+}
+
+.artist-gallery {
+  position: relative;
+  display: block;
+  width: 30%;
+  height: 100%;
+	float: left;
+}
+
+.artist-gallery-item {
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+
+.artist-story {
+  padding: 0 2.5em;
+  text-align: left;
+	line-height: 1.3em;
+	font-size: 1.2em;
+}
+
+.artist-link {
+	margin: 0;
+
+  &:visited,
+  &:link {
+    color: white;
+  	text-decoration: none;
+  }
+}

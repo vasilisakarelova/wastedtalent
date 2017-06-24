@@ -1,6 +1,7 @@
-var webpack  			= require('webpack');
-var path				= require('path');
-var HtmlWebpackPlugin 	= require('html-webpack-plugin');
+var webpack = require('webpack');
+var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 	devtool: 'source-map',
@@ -31,6 +32,14 @@ module.exports = {
 			{
         test: /\.css$/,
         use: [ 'style-loader', 'css-loader' ]
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          //resolve-url-loader may be chained before sass-loader if necessary
+          use: ['css-loader', 'sass-loader']
+        })
       },
 			{
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
@@ -63,6 +72,9 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new ExtractTextPlugin({
+      filename: "[name].[contenthash].css",
+    }),
 		new webpack.NoEmitOnErrorsPlugin(), // Webpack will let you know if there are any errors
 
 		// Declare global variables
