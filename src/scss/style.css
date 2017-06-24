@@ -1,0 +1,203 @@
+@font-face {
+	font-family: 'Neutral BP';
+	src: url('../fonts/NeutralBP.eot');
+	src: url('../fonts/NeutralBP.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/NeutralBP.woff2') format('woff2'),
+		url('../fonts/NeutralBP.woff') format('woff'),
+		url('../fonts/NeutralBP.ttf') format('truetype'),
+		url('../fonts/NeutralBP.svg#NeutralBP') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Akzidenz-Grotesk Extended BQ';
+	src: url('../fonts/AkzidenzGrotExtBQ-Regular.eot');
+	src: url('../fonts/AkzidenzGrotExtBQ-Regular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/AkzidenzGrotExtBQ-Regular.woff') format('woff'),
+		url('../fonts/AkzidenzGrotExtBQ-Regular.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.track {
+  position: relative;
+  display: block;
+  height: 100vh;
+  width: auto;
+
+}
+
+.section {
+  font-family: 'Neutral BP';
+  display: block;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  height: auto;
+  position: relative;
+  font-size: 1em;
+  line-height: 1.3em;
+}
+
+.section-track {
+  height: 100%;
+  display: block;
+  padding: 0;
+  overflow: scroll;
+  position: relative;
+}
+
+.content {
+  padding: 1em;
+}
+
+.title {
+  margin: 0;
+  font-family: 'Akzidenz-Grotesk Extended BQ';
+  font-size: 2.3em;
+  line-height: 2em;
+  text-transform: uppercase;
+  text-align: center;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+.intro {
+  display: block;
+  position: relative;
+  margin: 2em 0 3em;
+  text-align: center;
+}
+
+.publishing-section {
+  background: grey;
+  color: white;
+}
+
+.digital-section {
+  background: limegreen;
+  color: black;
+}
+
+.artist-block {
+  position: relative;
+  display: block;
+  margin: 1em 0 2em;
+}
+
+.artist-media {
+  display: block;
+  margin: 10px 0 40px 0;
+}
+
+.artist-intro-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto !important;
+}
+
+.artist-name {
+  text-transform: uppercase;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.management-section {
+  background: black;
+  color: white;
+}
+
+.about-media {
+  display: block;
+  margin: 10px 0 40px 0;
+}
+
+.about-logo {
+  position: relative;
+  width: 100%;
+  height: auto !important;
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+}
+
+.artist-section {
+  position: absolute;
+	display: block;
+  background: black;
+  color: white;
+  height: 100vh;
+  width: 100vw;
+	top: 0;
+	z-index: 999;
+	overflow: scroll;
+}
+
+.artist-content {
+  height: 100%;
+  width: 70%;
+  position: relative;
+  display: block;
+	float: left;
+}
+
+.artist-gallery {
+  position: relative;
+  display: block;
+  width: 30%;
+  height: 100%;
+	float: left;
+}
+
+.artist-gallery-item {
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+
+.artist-story {
+  padding: 0 2.5em;
+  text-align: left;
+	line-height: 1.3em;
+	font-size: 1.2em;
+}
+
+.artist-link {
+	margin: 0;
+}
+
+.artist-link:link,
+.artist-link:visited {
+	color: white;
+	text-decoration: none;
+}
+
+@media screen and (min-width: 800px) {
+  .track {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+  }
+
+  .section {
+    display: table-cell;
+    width: 25vw;
+    min-width: 16em;
+    height: 100%;
+    overflow: hidden;
+  }
+}

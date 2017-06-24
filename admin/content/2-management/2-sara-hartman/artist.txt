@@ -22,11 +22,13 @@ Main-info-group-start:
 
 ----
 
-Main-text: 
+Main-text: Singer & writer of songs Sag Harbor raised/Berlin based. Working on new music for you beautiful humans.
 
 ----
 
 Main-gallery: 
+
+- sara_hartman.jpg
 
 ----
 

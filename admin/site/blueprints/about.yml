@@ -1,10 +1,7 @@
 title: About
 
-pages:
-  template: team
-  num: zero
-
-files: false
+pages: false
+files: true
 
 options:
   template: false
@@ -14,6 +11,10 @@ fields:
   title:
     label: Title
     type: title
+
+  logo:
+    label: Logo
+    type: image
 
   abouttext:
     label: About
