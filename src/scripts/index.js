@@ -13,7 +13,7 @@ import Publishing from 'components/Publishing.js'
 import css from '../scss/main.scss';
 
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Route,
     Redirect,
     Switch
@@ -22,13 +22,13 @@ import {
 
 class AppInitializer {
   views = {
-    'about': About,
+    'about': <About dataPriority={'secondary'}/>,
     'artist': Artist,
-    'digital': Digital,
-    'header': Header,
-    'home': Home,
-    'management': Management,
-    'publishing': Publishing,
+    'digital': <Digital dataPriority={'secondary'}/>,
+    'header': <Header dataPriority={'secondary'}/>,
+    'home': <Home dataPriority={'secondary'}/>,
+    'management': <Management dataPriority={'secondary'}/>,
+    'publishing': <Publishing dataPriority={'secondary'}/>,
   }
 
   buildRoutes(paths, ops) {
@@ -38,8 +38,9 @@ class AppInitializer {
           return(
             <Route
               key={i}
-              component={ this.views[path] }
-              path={`/~vasilisakarelova/wastedtalent/build/${path}`}
+              render={(props) => (window.innerWidth < 800) ? (this.views[path]) : null }
+              path={`/${path}`}
+              dataPriority={'secondary'}
               exact
             />
           )
@@ -47,8 +48,8 @@ class AppInitializer {
           return(
             <Route
               key={i}
-              component={ this.views[ops] }
-              path={`/~vasilisakarelova/wastedtalent/build/${path}`}
+              component={this.views[ops]}
+              path={`/${path}`}
               exact
             />
           )
@@ -73,10 +74,10 @@ class AppInitializer {
               <Digital />
             </div>
             <Switch>
-              <Route path="/~vasilisakarelova/wastedtalent/build/" component={ Home } exact />
+              <Route path="/" component={ Home } exact />
               {this.buildRoutes(paths)}
               {this.buildRoutes(pathsArtist, 'artist')}
-              <Route render={() => { return <Redirect to="/~vasilisakarelova/wastedtalent/build/" /> }} />
+              <Route render={() => { return <Redirect to="/" /> }} />
             </Switch>
           </main>
         </div>
@@ -87,4 +88,12 @@ class AppInitializer {
   }
 }
 
-new AppInitializer().run();
+new AppInitializer().run()
+
+$(window).on('resize', () => {
+  new AppInitializer().run()
+})
+
+$(window).on('orientationchange', () => {
+  new AppInitializer().run()
+})

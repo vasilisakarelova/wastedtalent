@@ -3,30 +3,44 @@ import DataStore from 'flux/stores/DataStore.js'
 import setSectionLink from 'flux/actions/SetSectionLink.js'
 
 class About extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount() {
+    const second = document.querySelector('[data-prio="secondary"]')
+    if (second == null) {
+      return;
+    }
+    const longContent = second.querySelector('.content-long')
+
+    second.classList.add('is-open')
+    longContent.classList.add('is-visible')
+  }
+
   render() {
-    //let pageData = DataStore.getPageBySlug('abou t');
+    const prio = this.props.dataPriority;
     let page = DataStore.getAll().pages.about[0];
 
     return (
-      <section className='section about-section'>
+      <section className='section about-section' data-prio={prio} data-open='false'>
         <div className='section-track'>
           <div className='content about-content'>
-            <div className='content-short'>
-              <div className='about-media'>
-                <Link
-                  to={`/~vasilisakarelova/wastedtalent/build/${page.url}`}
-                  className='section-link'
-                  data-section-link
-                  onClick={ev => setSectionLink(ev)}
-                  >
-                    <img className='about-logo' src={page.logo}/>
-                  </Link>
+            <Link
+              to={`/${page.url}`}
+              className='section-link'
+              data-section-link
+              >
+              <div className='content-short'>
+                <div className='about-media'>
+                  <img className='about-logo' src={page.logo}/>
+                </div>
               </div>
-            </div>
-            <div className='content-long'>
-              <div className='about-intro' dangerouslySetInnerHTML={{ __html: page.abouttext }}></div>
-              <div className='about-text' dangerouslySetInnerHTML={{ __html: page.impressumtext }}></div>
-            </div>
+              <div className='content-long'>
+                <div className='about-intro' dangerouslySetInnerHTML={{ __html: page.abouttext }}></div>
+                <div className='about-text' dangerouslySetInnerHTML={{ __html: page.impressumtext }}></div>
+              </div>
+            </Link>
           </div>
         </div>
       </section>

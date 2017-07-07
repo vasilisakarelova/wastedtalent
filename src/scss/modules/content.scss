@@ -14,6 +14,10 @@
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 2.7em;
+  }
 }
 
 .intro {
@@ -21,13 +25,23 @@
   position: relative;
   margin: 2em 0 3em;
   text-align: center;
+  font-size: 1em;
+  line-height: 1.2em;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 1.5em;
+    line-height: 1.4em;
+  }
 }
 
+.main-container {
+  position: relative;
+}
 
 .track {
   position: relative;
   display: block;
-  height: 100vh;
+  height: 100%;
   width: auto;
 
   @media screen and (min-width: 800px) {
@@ -37,6 +51,26 @@
   }
 }
 
+.content-long {
+  display: none;
+  text-align: left;
+  font-size: 1em;
+  line-height: 1.2em;
+
+  @media screen and (min-width: 800px) {
+    display: block;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 1.5em;
+    line-height: 1.4em;
+  }
+}
+
 .is-hidden {
   display: none;
+}
+
+.is-visible {
+  display: block;
 }

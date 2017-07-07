@@ -4,7 +4,7 @@ import alt   from 'flux/alt/alt.js';
 class DataActions {
 
     constructor() {
-        this.endPoint = 'http://localhost/~vasilisakarelova/wastedtalent2/admin/api'; // Wordpress installation url
+      this.endPoint = 'http://dev.selam-x.com/wastedtalent/admin/api';
     }
 
     // Method for getting data from the provided end point url

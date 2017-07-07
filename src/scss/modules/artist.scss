@@ -26,11 +26,14 @@
 	display: block;
   background: black;
   color: white;
-  height: 100vh;
   width: 100vw;
 	top: 0;
 	z-index: 999;
 	overflow: scroll;
+
+  @media screen and (min-width: 800px) {
+    height: 100vh;
+  }
 }
 
 .artist-content {
@@ -39,6 +42,13 @@
   position: relative;
   display: block;
 	float: left;
+  font-size: 1em;
+  line-height: 1.2em;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 1.5em;
+    line-height: 1.4em;
+  }
 }
 
 .artist-gallery {
