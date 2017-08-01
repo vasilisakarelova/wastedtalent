@@ -1,0 +1,40 @@
+Title: TOBIAS KUHN
+
+----
+
+Intro-group-start: 
+
+----
+
+Intro-image: tobias-kuhn-18-1.jpg
+
+----
+
+Intro-text: 
+
+----
+
+Intro-group-end: 
+
+----
+
+Main-info-group-start: 
+
+----
+
+Main-text: 
+
+----
+
+Main-gallery: 
+
+- tobias-kuhn-10-1.jpg
+- tobias-kuhn-9-1.jpg
+
+----
+
+Main-info-group-end: 
+
+----
+
+Artist-logo: 

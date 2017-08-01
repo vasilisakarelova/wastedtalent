@@ -1,21 +1,44 @@
 .about-media {
   display: block;
   margin: 0;
+  text-align: center;
+  height: 100%;
 
-  @media screen and (min-width: 800px) {
-    margin: 10px 0 40px 0;
+  @media screen and (min-width: 768px) {
+    margin: 0 0 40px 0;
+    height: 20vh;
   }
 }
 
 .about-logo {
-  position: relative;
+  height: 100%;
   width: auto;
-  height: 25vh;
-  filter: invert(100%);
-  -webkit-filter: invert(100%);
+  opacity: 1;
+  transition: transform .3s ease-in;
+  outline: none;
 
-  @media screen and (min-width: 800px) {
-    width: 100%;
-    height: auto !important;
+  &:hover {
+    transform: scale(0.9);
+  }
+}
+
+.about-text {
+  margin-top: 2em;
+}
+
+.strobe {
+  animation: strobe 100ms steps(1,end) 3;
+  animation-play-state:running;
+}
+
+@keyframes strobe {
+  50% {
+    opacity:0;
+  }
+}
+
+.about-artist {
+  .content {
+    padding-bottom: 1.5em;
   }
 }

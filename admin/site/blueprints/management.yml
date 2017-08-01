@@ -2,7 +2,7 @@ title: Management
 
 pages:
   template: artist
-files: false
+files: true
 
 options:
   template: false

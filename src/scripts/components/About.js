@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import DataStore from 'flux/stores/DataStore.js'
 import setSectionLink from 'flux/actions/SetSectionLink.js'
+import $ from 'jquery';
 
 class About extends React.Component {
   constructor(props) {
@@ -18,29 +19,44 @@ class About extends React.Component {
     longContent.classList.add('is-visible')
   }
 
+  handleScroll() {
+    const context = document.querySelector('#about');
+    const clones = [...context.querySelectorAll('.is-clone')];
+    const shortContent = context.querySelector('.content-short');
+    let possibleScroll = context.scrollHeight;
+    let offsetHeight = context.offsetHeight;
+    let scrolledFromTop = context.scrollTop;
+    let loopHeight = 0;
+
+    if ((scrolledFromTop + offsetHeight) >= possibleScroll) {
+      const clone = context.querySelector('.is-clone');
+      let newClone = clone.cloneNode(true);
+      context.appendChild(newClone);
+    } else if (scrolledFromTop < (offsetHeight + clones[0].offsetHeight)) {
+      const removeClones = clones.splice(3);
+      removeClones.forEach(removeClone => {
+        context.removeChild(removeClone)
+      })
+    }
+  }
+
   render() {
     const prio = this.props.dataPriority;
     let page = DataStore.getAll().pages.about[0];
 
     return (
-      <section className='section about-section' data-prio={prio} data-open='false'>
-        <div className='section-track'>
+      <section className='section main about-section' data-prio={prio} data-open='false' data-link='about'>
+        <div className='section-track' id='about' onScroll={this.handleScroll}>
           <div className='content about-content'>
-            <Link
-              to={`/${page.url}`}
-              className='section-link'
-              data-section-link
-              >
-              <div className='content-short'>
-                <div className='about-media'>
-                  <img className='about-logo' src={page.logo}/>
-                </div>
+            <div className='content-short'>
+              <div className='about-media'>
+                <Link to={`/`}><img className='about-logo animate' src={page.logo}/></Link>
               </div>
-              <div className='content-long'>
-                <div className='about-intro' dangerouslySetInnerHTML={{ __html: page.abouttext }}></div>
-                <div className='about-text' dangerouslySetInnerHTML={{ __html: page.impressumtext }}></div>
-              </div>
-            </Link>
+            </div>
+            <div className='content-long'>
+              <div className='about-intro' dangerouslySetInnerHTML={{ __html: page.abouttext }}></div>
+              <div className='about-text' dangerouslySetInnerHTML={{ __html: page.impressumtext }}></div>
+            </div>
           </div>
         </div>
       </section>

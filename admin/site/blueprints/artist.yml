@@ -32,6 +32,9 @@ fields:
     type: panelgroup
     position: start
     accordian: true
+  artist_logo:
+    label: Artist Logo
+    type:  image
   main_text:
     label: Description
     type:  textarea
@@ -42,3 +45,23 @@ fields:
   main_info_group_end:
     type: panelgroup
     position: end
+
+  facebook_link:
+    label: Facebook
+    type: url
+    width: 1/2
+
+  twitter_link:
+    label: Twitter
+    type: url
+    width: 1/2
+
+  instagram_link:
+    label: Instagram
+    type: url
+    width: 1/2
+
+  instagram_img:
+    label: Instagram Image
+    type: url
+    width: 1/2

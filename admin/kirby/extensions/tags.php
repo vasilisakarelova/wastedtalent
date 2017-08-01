@@ -143,8 +143,8 @@ kirbytext::$tags['image'] = array(
 
     if(kirby()->option('kirbytext.image.figure') or !empty($caption)) {
       $image  = $_link($_image($tag->attr('imgclass')));
-      $figure = new Brick('figure');
-      $figure->addClass($tag->attr('class'));
+      $figure = new Brick('span');
+      $figure->addClass('content-img');
       $figure->append($image);
       if(!empty($caption)) {
         $figure->append('<figcaption>' . html($caption) . '</figcaption>');
@@ -177,7 +177,7 @@ kirbytext::$tags['link'] = array(
 
     if(empty($text)) {
       $text = $link;
-    } 
+    }
 
     if(str::isURL($text)) {
       $text = url::short($text);

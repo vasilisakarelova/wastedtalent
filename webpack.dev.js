@@ -1,8 +1,9 @@
 var webpack  			= require('webpack');
 var path				= require('path');
 var HtmlWebpackPlugin 	= require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = {	
+module.exports = {
 	devtool: 'cheap-module-source-map',
 	devServer: {
 		historyApiFallback: true, // This will make the server understand "/some-link" routs instead of "/#/some-link"
@@ -20,7 +21,7 @@ module.exports = {
 	},
 	resolve: {
 		modules: [
-			'node_modules', 
+			'node_modules',
 			'src',
 			path.resolve(__dirname, 'src/scripts'),
 			path.resolve(__dirname, 'node_modules')
@@ -28,7 +29,7 @@ module.exports = {
 		extensions: ['.jsx', '.js'] // Extensions that Webpack is going to expect
 	},
 	module: {
-		// Loaders allow you to preprocess files as you require() or “load” them. 
+		// Loaders allow you to preprocess files as you require() or “load” them.
 		// Loaders are kind of like “tasks” in other build tools, and provide a powerful way to handle frontend build steps.
 		loaders: [
 			{
@@ -38,6 +39,18 @@ module.exports = {
 				],
 				loader: ['react-hot-loader']
 			},
+			{
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          //resolve-url-loader may be chained before sass-loader if necessary
+          use: ['css-loader', 'sass-loader']
+        })
+      },
+			{
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        loader: 'url-loader'
+      },
 			{
 				loader: "babel-loader",
 
@@ -58,6 +71,9 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new ExtractTextPlugin({
+      filename: "[name].css",
+    }),
 		new webpack.HotModuleReplacementPlugin(), // Hot reloading
 		new webpack.NoEmitOnErrorsPlugin(), // Webpack will let you know if there are any errors
 

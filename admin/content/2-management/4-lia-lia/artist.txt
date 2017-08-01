@@ -1,0 +1,37 @@
+Title: LIA LIA
+
+----
+
+Intro-group-start: 
+
+----
+
+Intro-image: lialia_2_andykassier_kassierstudios.jpg
+
+----
+
+Intro-text: 
+
+----
+
+Intro-group-end: 
+
+----
+
+Main-info-group-start: 
+
+----
+
+Main-text: 
+
+----
+
+Main-gallery: 
+
+----
+
+Main-info-group-end: 
+
+----
+
+Artist-logo: 

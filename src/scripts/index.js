@@ -50,6 +50,7 @@ class AppInitializer {
               key={i}
               component={this.views[ops]}
               path={`/${path}`}
+              dataShow={'false'}
               exact
             />
           )
@@ -59,30 +60,25 @@ class AppInitializer {
 
   run() {
     DataActions.getPages((response)=>{
-    let paths = [];
-    let pathsArtist = [];
-    Object.keys(response.pages).map(path => paths.push(path))
-    response.posts.map(path => pathsArtist.push(path.url))
-    render(
-      <Router>
-        <div className='main-wrapper'>
-          <main className='main-container'>
-            <div className='track'>
-              <About />
-              <Management />
-              <Publishing />
-              <Digital />
-            </div>
-            <Switch>
-              <Route path="/" component={ Home } exact />
-              {this.buildRoutes(paths)}
-              {this.buildRoutes(pathsArtist, 'artist')}
-              <Route render={() => { return <Redirect to="/" /> }} />
-            </Switch>
-          </main>
-        </div>
-      </Router>
-      , document.getElementById('app')
+      let paths = [];
+      let pathsArtist = [];
+      Object.keys(response.pages).map((path,i) => paths.push(path))
+      response.posts.map((path,i) => pathsArtist.push(path.url))
+      render(
+        <Router>
+          <div className='main-wrapper'>
+            <main className='main-container'>
+              <Header />
+              <Switch>
+                <Route path="/" component={ Home } exact />
+                {this.buildRoutes(paths)}
+                {this.buildRoutes(pathsArtist, 'artist')}
+                <Route render={() => { return <Redirect to="/" /> }} />
+              </Switch>
+            </main>
+          </div>
+        </Router>
+        , document.getElementById('app')
       );
     });
   }

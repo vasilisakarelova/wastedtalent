@@ -19,3 +19,25 @@
 	font-weight: 500;
 	font-style: normal;
 }
+
+@font-face {
+	font-family: 'Old Standard Regular';
+	src: url('../fonts/OldStandardTT-Regular.eot');
+	src: url('../fonts/OldStandardTT-Regular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/OldStandardTT-Regular.woff') format('woff'),
+		url('../fonts/OldStandardTT-Regular.ttf') format('truetype'),
+		url('../fonts/OldStandardTT-Regular.svg#OldStandardTT-Regular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Old Standard Italic';
+	src: url('../fonts/OldStandardTT-Italic.eot');
+	src: url('../fonts/OldStandardTT-Italic.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/OldStandardTT-Italic.woff') format('woff'),
+		url('../fonts/OldStandardTT-Italic.ttf') format('truetype'),
+		url('../fonts/OldStandardTT-Italic.svg#OldStandardTT-Italic') format('svg');
+	font-weight: normal;
+	font-style: italic;
+}

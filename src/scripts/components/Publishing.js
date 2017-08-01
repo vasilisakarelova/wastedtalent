@@ -18,28 +18,48 @@ class Publishing extends React.Component {
     longContent.classList.add('is-visible')
   }
 
+  handleScroll() {
+    const context = document.querySelector('#publishing');
+    const clones = [...context.querySelectorAll('.is-clone')];
+    const shortContent = context.querySelector('.content-short');
+    let possibleScroll = context.scrollHeight;
+    let offsetHeight = context.offsetHeight;
+    let scrolledFromTop = context.scrollTop;
+    let loopHeight = 0;
+
+    if ((scrolledFromTop + offsetHeight) >= possibleScroll) {
+      const clone = context.querySelector('.is-clone');
+      let newClone = clone.cloneNode(true);
+      context.appendChild(newClone);
+      /*clones.forEach((clone) => {
+        loopHeight += clone.scrollHeight;
+      })*/
+
+      //context.scrollTop = shortContent.offsetHeight + (2 * clones[0].offsetHeight);
+    } else if (scrolledFromTop < (offsetHeight + clones[0].offsetHeight)) {
+      const removeClones = clones.splice(3);
+      removeClones.forEach(removeClone => {
+        context.removeChild(removeClone)
+      })
+    }
+  }
+
   render() {
     const prio = this.props.dataPriority;
     let page = DataStore.getAll().pages.publishing[0];
 
     return (
-      <section className='section publishing-section' data-prio={prio} data-open='false'>
-        <div className='section-track'>
+      <section className='section main publishing-section' data-prio={prio} data-open='false' data-link='publishing'>
+        <div className='section-track' id='publishing' onScroll={this.handleScroll}>
           <div className='content publishing-content'>
-            <Link
-              to={`/${page.url}`}
-              className='section-link'
-              data-section-link
-              >
-              <div className='content-short'>
-                <h1 className='title publishing-title' dangerouslySetInnerHTML={{ __html: page.title }}></h1>
-                <div className='intro publishing-intro' dangerouslySetInnerHTML={{ __html: page.headline }}></div>
-              </div>
-              <div className='content-long'>
-                <div className='publishing-text' dangerouslySetInnerHTML={{ __html: page.text }}></div>
-                <div className='publishing-text' dangerouslySetInnerHTML={{ __html: page.p_content }}></div>
-              </div>
-            </Link>
+            <div className='content-short'>
+              <h1 className='title publishing-title' dangerouslySetInnerHTML={{ __html: page.title }}></h1>
+              <div className='intro publishing-intro'><p>{page.headline}</p></div>
+            </div>
+            <div className='content-long'>
+              <div className='publishing-text' dangerouslySetInnerHTML={{ __html: page.text }}></div>
+              <div className='publishing-text' dangerouslySetInnerHTML={{ __html: page.p_content.replace(/<span class="content-img"><a/i, '<span class="inline-img"><a') }}></div>
+            </div>
           </div>
         </div>
       </section>

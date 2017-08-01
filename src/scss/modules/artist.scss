@@ -2,6 +2,8 @@
   position: relative;
   display: block;
   margin: 1em 0 2em;
+  border-bottom: .1em solid white;
+  padding-bottom: 2em;
 }
 
 .artist-media {
@@ -16,9 +18,25 @@
 }
 
 .artist-name {
+  position: relative;
+  display: table;
+  margin: 0 auto;
+  padding: 10px;
+  line-height: 1em;
+  background-color: #fff;
+  color: #000;
   text-transform: uppercase;
-  text-decoration: underline;
   cursor: pointer;
+  font-family: 'Neutral BP'; //'Old Standard Regular';
+  font-style: normal;
+  font-weight: normal;
+}
+
+.about-section {
+  .artist-name {
+    background-color: #000;
+    color: #fff;
+  }
 }
 
 .artist-section {
@@ -28,11 +46,16 @@
   color: white;
   width: 100vw;
 	top: 0;
-	z-index: 999;
+	z-index: 10000;
 	overflow: scroll;
+  height: auto;
+  min-height: 100%;
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 768px) {
     height: 100vh;
+    width: 75vw;
+    max-width: calc(100vw - 16em);
+    right: 0;
   }
 }
 
@@ -42,12 +65,16 @@
   position: relative;
   display: block;
 	float: left;
-  font-size: 1em;
-  line-height: 1.2em;
+  font-size: .9em;
+  line-height: 1.3em;
+
+  @media screen and (min-width: 1024px) {
+    font-size: .7em;
+  }
 
   @media screen and (min-width: 1440px) {
-    font-size: 1.5em;
-    line-height: 1.4em;
+    font-size: 1.1em;
+    line-height: 1.5em;
   }
 }
 
@@ -66,18 +93,135 @@
 }
 
 .artist-story {
-  padding: 0 2.5em;
+  padding: 0 1em;
   text-align: left;
 	line-height: 1.3em;
-	font-size: 1.2em;
+	font-size: 1em;
+  margin-bottom: 2em;
+  text-align: justify;
+
+  @media screen and (min-width: 768px) {
+    padding: 0 2.5em;
+    font-size: 1.2em;
+  }
 }
 
 .artist-link {
+  position: relative;
+  display: block;
 	margin: 0;
+  text-decoration: none !important;
+  font-style: normal !important;
+  cursor: pointer !important;
 
   &:visited,
   &:link {
     color: white;
   	text-decoration: none;
   }
+}
+
+.secondary {
+  .artist-link {
+    display: inline-block !important;
+    margin: .1em .1em 0 0 !important;
+    font-size: .9em;
+  }
+
+  .artist-name {
+    &:hover {
+      color: black;
+      background-color: transparent;
+    }
+  }
+}
+
+.social-media {
+  text-align: center;
+}
+
+.social-link {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+
+  img {
+    position: relative;
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+.artist-logo {
+  position: relative;
+  display: block;
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.box {
+  z-index: 10012;
+  width: 15em;
+  display: block;
+
+  img {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
+  }
+}
+
+.instagram-post-options-container {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.instagram-post-options {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.instagram-post-option {
+  border-radius: 50%;
+  background-color: #fff;
+  color: #000;
+  width: 50px;
+  height: 50px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 5px;
+  cursor: pointer;
 }
