@@ -82,3 +82,30 @@ Main-gallery:
 ----
 
 Artist-logo: milkychance_logo.png
+
+----
+
+Facebook-link: https://www.google.ru/url?sa=t&rct=j&q=&esrc=s&source=web&cd=7&cad=rja&uact=8&ved=0ahUKEwjHobrpiaDVAhUpEJoKHbaLDrwQFghHMAY&url=https%3A%2F%2Fwww.facebook.com%2Fmilkychancemusic%2F&usg=AFQjCNEOGF82k2fovFejjrWhkGY3-c7yaw
+
+----
+
+Twitter-link: https://www.google.ru/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&cad=rja&uact=8&ved=0ahUKEwjHobrpiaDVAhUpEJoKHbaLDrwQ6F4IODAC&url=https%3A%2F%2Ftwitter.com%2FMilkyChance%3Fref_src%3Dtwsrc%255Egoogle%257Ctwcamp%255Eserp%257Ctwgr%255Eauthor&usg=AFQjCNGWHhD55ALjyrUQvemPh9t97RzGuA
+
+----
+
+Instagram-link: https://www.instagram.com/milkychance_official/
+
+----
+
+Instagram-img: https://scontent-frx5-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/20393565_247997119024373_5739323162231832576_n.jpg
+
+----
+
+Booking-info: 
+
+Indie pop duo from Kassel, Germany. Gold and platinum certified band touring around the world.
+<br><br>
+Booking: <br>
+ james (at) codaagency.com (ROW); <br>
+jbeau (at) unitedtalent.com (North America); <br>
+felix (at) landstreicher.com (GSA)<br>

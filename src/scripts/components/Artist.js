@@ -29,6 +29,7 @@ class Artist extends React.Component {
   }
 
   componentDidMount() {
+    document.querySelector('[data-slider]').style.display = 'none';
     document.querySelectorAll('.animate').forEach((img) => {
       img.addEventListener('mouseleave', () => {
         img.classList.add('strobe')
@@ -37,6 +38,10 @@ class Artist extends React.Component {
         img.classList.remove('strobe')
       })
     })
+  }
+
+  componentWillUnmount() {
+    document.querySelector('[data-slider]').style.display = 'block';
   }
 
   componentWillEnter (callback) {
@@ -139,6 +144,7 @@ class Artist extends React.Component {
                 <a className='social-link' target='_blank' href={artist[0].instagram_link} ><img src={instagram} /></a>
                 <a className='social-link' target='_blank' href={artist[0].twitter_link} ><img src={twitter} /></a>
               </div>
+              <div className='booking-info' dangerouslySetInnerHTML={{ __html: artist[0].booking_info }}></div>
               <div className='content-long'>
                 {artistsList}
               </div>

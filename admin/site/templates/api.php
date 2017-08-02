@@ -65,6 +65,12 @@ foreach($artists as $artist) {
 	  $instagram_img = null;
 	endif;
 
+  if($artist->booking_info()->isNotEmpty()):
+	  $booking_info = (string)$artist->booking_info();
+	else:
+	  $booking_info = null;
+	endif;
+
   $artistarray[] = array(
     'url'   => (string)$artist->slug(),
     'title' => (string)$artist->title(),
@@ -76,7 +82,8 @@ foreach($artists as $artist) {
     'twitter_link' => $twitter_link,
     'facebook_link' => $facebook_link,
     'instagram_link' => $instagram_link,
-    'instagram_img' => $instagram_img
+    'instagram_img' => $instagram_img,
+    'booking_info' => $booking_info
   );
 }
 

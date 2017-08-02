@@ -65,3 +65,7 @@ fields:
     label: Instagram Image
     type: url
     width: 1/2
+
+  booking_info:
+    label: Booking info, short Description
+    type: textarea

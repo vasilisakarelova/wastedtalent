@@ -56,10 +56,14 @@
 .intro {
   display: block;
   position: relative;
-  margin: 2em 0 3em;
+  margin: 0; //2em 0 3em;
   text-align: center;
   font-size: 1em;
   line-height: 1.2em;
+
+  @media screen and (min-width: 768px) {
+    margin: 2em 0 3em;
+  }
 
   @media screen and (min-width: 1440px) {
     font-size: 1.5em;
@@ -120,10 +124,10 @@
 
 .secondary {
   .content-long {
-    position: absolute;
-    width: 25vw;
+    position: relative;
+    width: 100%;
     min-width: 16em;
-    margin-bottom: 2em;
+    margin: 2em 0;
     left: 0;
     bottom: 0;
     text-align: center;
@@ -133,6 +137,12 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+
+    @media screen and (min-width: 768px) {
+      position: absolute;
+      width: 25vw;
+      margin: 0 0 2em 0;
+    }
   }
 }
 

@@ -9,8 +9,8 @@ password: >
 language: en
 role: admin
 history:
+  - management/milky-chance
   - publishing
   - digital
   - management/tobias-kuhn
   - management/lia-lia
-  - management/sara-hartman
