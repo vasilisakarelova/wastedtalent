@@ -61,11 +61,21 @@ fields:
     type: url
     width: 1/2
 
-  instagram_img:
-    label: Instagram Image
-    type: url
-    width: 1/2
-
   booking_info:
     label: Booking info, short Description
     type: textarea
+
+  instagram_img_1:
+    label: Instagram Image 1
+    type: url
+    width: 1/2
+
+  instagram_img_2:
+    label: Instagram Image 2
+    type: url
+    width: 1/2
+
+  instagram_img_3:
+    label: Instagram Image 3
+    type: url
+    width: 1/2

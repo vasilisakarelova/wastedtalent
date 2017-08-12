@@ -41,6 +41,7 @@
   &.secondary {
     @media screen and (max-width: 768px) {
       width: 100vw !important;
+      height: auto;
       position: relative !important;
     }
   }
@@ -179,12 +180,16 @@
 .box {
   z-index: 10012;
   width: 15em;
-  display: block;
+  display: none;
 
   img {
     width: 100%;
     height: auto;
     position: relative;
+    display: block;
+  }
+
+  @media screen and (min-width: 768px) {
     display: block;
   }
 }
@@ -246,9 +251,19 @@
 }
 
 .about-artist {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  transition: all .3s ease-in;
+
   @media screen and (max-width: 768px) {
     position: absolute;
     display: block;
     top: 0;
   }
+}
+
+.is-faded {
+  opacity: 0;
 }

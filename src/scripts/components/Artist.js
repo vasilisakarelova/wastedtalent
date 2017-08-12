@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { TweenMax } from 'gsap';
-import CSSTransition from 'react-transition-group/CSSTransition';
 import DataStore from 'flux/stores/DataStore.js'
 import DataActions from 'flux/actions/DataActions.js'
+import ProgressiveImage from 'react-progressive-image'
 
 import facebook from '../../assets/facebook.png';
 import instagram from '../../assets/instagram.png';
@@ -11,16 +11,6 @@ import twitter from '../../assets/twitter.png';
 import Draggable from 'react-draggable';
 
 import $ from 'jquery';
-
-const Fade = ({ children, ...props }) => (
- <CSSTransition
-   {...props}
-   timeout={500}
-   classNames="fade"
- >
-  {children}
- </CSSTransition>
-);
 
 class Artist extends React.Component {
   constructor(...args) {
@@ -41,7 +31,7 @@ class Artist extends React.Component {
   }
 
   componentWillUnmount() {
-    document.querySelector('[data-slider]').style.display = 'block';
+    document.querySelector('[data-slider]').style.display = 'flex';
   }
 
   componentWillEnter (callback) {
@@ -84,7 +74,11 @@ class Artist extends React.Component {
     });
     const gallery = artist[0].main_gallery.map((img,i) => {
       return(
-        <span className='content-img' key={i}><img className='artist-gallery-item' src={img.src} /></span>
+        <span className='content-img' key={i}>
+          <ProgressiveImage src={img.src} placeholder={img.thumb}>
+            {(src) => <img src={src} className='artist-gallery-item'/>}
+          </ProgressiveImage>
+        </span>
       );
     });
     const artistLogoSrc = artist[0].artist_logo;
@@ -113,9 +107,47 @@ class Artist extends React.Component {
     return (
       <div className='about-artist' data-instagram-parent>
         <Draggable>
-          <div className='box' data-instagram-frame style={{position: 'absolute', top: '40vh', left: '100px' }} onMouseOver={ ev => this.openOptions(ev) } onMouseLeave={ ev => this.hideOptions(ev) }>
+          <div className='box' data-instagram-frame style={{position: 'absolute', top: `${Math.random() * (60 - 10) + 10}vh`, left: `${Math.random() * 33}vw` }} onMouseOver={ ev => this.openOptions(ev) } onMouseLeave={ ev => this.hideOptions(ev) }>
             <div className="instagram-post-image" style={{ transform: 'rotate(-7deg)' }}>
-              <img src={artist[0].instagram_img} />
+              <img src={artist[0].instagram_img_1} />
+            </div>
+            <div className="instagram-post-options-container" style={{ transform: 'rotate(-7deg)' }}>
+              <div className="instagram-post-options">
+                <span className="instagram-post-option js--close-instagram-post" onClick={this.closeInstagram}>
+                  <i className="fa fa-times fa-2x"></i>
+                </span>
+                <a target="_blank" href={artist[0].instagram_link}>
+                  <span className="instagram-post-option">
+                    <i className="fa fa-instagram fa-2x"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </Draggable>
+        <Draggable>
+          <div className='box' data-instagram-frame style={{position: 'absolute', top: `${Math.random() * (60 - 10) + 10}vh`, left: `${Math.random() * (66 - 33) + 33}vw` }} onMouseOver={ ev => this.openOptions(ev) } onMouseLeave={ ev => this.hideOptions(ev) }>
+            <div className="instagram-post-image" style={{ transform: 'rotate(13deg)' }}>
+              <img src={artist[0].instagram_img_2} />
+            </div>
+            <div className="instagram-post-options-container" style={{ transform: 'rotate(13deg)' }}>
+              <div className="instagram-post-options">
+                <span className="instagram-post-option js--close-instagram-post" onClick={this.closeInstagram}>
+                  <i className="fa fa-times fa-2x"></i>
+                </span>
+                <a target="_blank" href={artist[0].instagram_link}>
+                  <span className="instagram-post-option">
+                    <i className="fa fa-instagram fa-2x"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </Draggable>
+        <Draggable>
+          <div className='box' data-instagram-frame style={{position: 'absolute', top: `${Math.random() * (60 - 10) + 10}vh`, left: `${Math.random() * (90 - 66) + 66}vw` }} onMouseOver={ ev => this.openOptions(ev) } onMouseLeave={ ev => this.hideOptions(ev) }>
+            <div className="instagram-post-image" style={{ transform: 'rotate(-7deg)' }}>
+              <img src={artist[0].instagram_img_3} />
             </div>
             <div className="instagram-post-options-container" style={{ transform: 'rotate(-7deg)' }}>
               <div className="instagram-post-options">
@@ -151,25 +183,23 @@ class Artist extends React.Component {
             </div>
           </div>
         </div>
-        <Fade in={this.state.show} >
-          <div className='artist-section'>
-            <Link
-              to={`/`}
-              >
-              <div className='logo-title'>
-                <img className='logo-img' src={logo}/>
-              </div>
-            </Link>
-            {artistLogo[0]}
-            <div className='artist-content'>
-              <div className='artist-story' dangerouslySetInnerHTML={{ __html: artist[0].main_text }}></div>
+        <div className='artist-section'>
+          <Link
+            to={`/`}
+            >
+            <div className='logo-title'>
+              <img className='logo-img' src={logo}/>
             </div>
-            <div className='artist-gallery'>
-              { gallery }
-            </div>
+          </Link>
+          {artistLogo[0]}
+          <div className='artist-content'>
+            <div className='artist-story' dangerouslySetInnerHTML={{ __html: artist[0].main_text }}></div>
           </div>
-        </Fade>
-      </div>
+          <div className='artist-gallery'>
+            { gallery }
+          </div>
+        </div>
+    </div>
     );
   }
 }

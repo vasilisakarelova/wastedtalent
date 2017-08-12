@@ -1,3 +1,74 @@
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(100% - 2em);
+  height: 100%;
+  padding: 0 1em;
+  opacity: 1;
+  z-index: 99999;
+  cursor: pointer;
+}
+#loader {
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: calc(100% - 2em);
+  text-align: center;
+  z-index: 1001;
+  overflow: hidden;
+}
+
+#loader-track {
+  position: relative;
+  display: block;
+  height: 115vh;
+  width: 100%;
+  column-count: 5;
+}
+
+#loader-wrapper .loader-section {
+  position: fixed;
+  top: 0;
+  width: 51%;
+  height: 100%;
+  background: #fff;
+  z-index: 1000;
+}
+
+#loader-wrapper .loader-section.section-left {
+  left: 0;
+}
+#loader-wrapper .loader-section.section-right {
+  right: 0;
+}
+
+.preloader-item {
+  display: block;
+  position: relative;
+  width: 12vw;
+  margin: 0 auto;
+
+  img {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.loaded #loader {
+  opacity: 0;
+  transition: all .4s ease;
+
+}
+.loaded #loader-wrapper {
+  visibility: hidden;
+  opacity: 0;
+  transition: all .4s ease;
+}
+
 .content {
   padding: 1.5em;
   padding-right: 2.5em;
@@ -33,11 +104,6 @@
   line-height: 2em;
   text-transform: uppercase;
   text-align: center;
-  word-break: break-word;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
 
   @media screen and (min-width: 768px) {
     font-size: 1.7em;
@@ -49,7 +115,7 @@
   }
 
   @media screen and (min-width: 1440px) {
-    font-size: 2.5em;
+    font-size: 2.7vw;
   }
 }
 
@@ -173,12 +239,15 @@
   display: block;
   width: 100%;
   height: auto;
+  transition: all .2s ease-in;
 
   img {
     display: block;
     width: 100%;
     height: auto;
     filter: blur(0);
+    margin: auto;
+    transition: all .2s ease-in;
   }
 
   a {
@@ -186,6 +255,16 @@
     display: block;
     width: 40%;
     max-width: 10em;
+  }
+
+  @media screen and (min-width: 768px) {
+    &:hover {
+      img {
+        filter: blur(0);
+        opacity: .75;
+        transform: scale(.85);
+      }
+    }
   }
 }
 

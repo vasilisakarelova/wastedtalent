@@ -9,6 +9,7 @@ import Header from 'components/Header.js'
 import Home from 'components/Home.js'
 import Management from 'components/Management.js'
 import Publishing from 'components/Publishing.js'
+import LoaderImg from 'components/LoaderImg.js'
 
 import css from '../scss/main.scss';
 
@@ -60,6 +61,13 @@ class AppInitializer {
 
   run() {
     DataActions.getPages((response)=>{
+      let images = []
+      const n = 35
+
+      for (let i = 0; i < n; i++) {
+        images.push( <LoaderImg key={i} /> )
+      }
+
       let paths = [];
       let pathsArtist = [];
       Object.keys(response.pages).map((path,i) => paths.push(path))
@@ -68,6 +76,15 @@ class AppInitializer {
         <Router>
           <div className='main-wrapper'>
             <main className='main-container'>
+              <div id="loader-wrapper">
+                <div id="loader">
+                  <div id="loader-track">
+                    { images }
+                  </div>
+                </div>
+                <div className="loader-section section-left"></div>
+                <div className="loader-section section-right"></div>
+              </div>
               <Header />
               <Switch>
                 <Route path="/" component={ Home } exact />
@@ -92,4 +109,14 @@ $(window).on('resize', () => {
 
 $(window).on('orientationchange', () => {
   new AppInitializer().run()
+})
+
+document.addEventListener('click', () => {
+  document.body.classList.add('loaded')
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(function(){
+    document.body.classList.add('loaded')
+  }, 4000);
 })

@@ -50,7 +50,7 @@ class About extends React.Component {
           <div className='content about-content'>
             <div className='content-short'>
               <div className='about-media'>
-                <Link to={`/`}><img className='about-logo animate' src={page.logo}/></Link>
+                <Link to={`/`}><img className='about-logo animate' src={this.props.logosrc}/></Link>
               </div>
             </div>
             <div className='content-long'>

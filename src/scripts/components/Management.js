@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-//import { InfiniteLoader, List} from 'react-virtualized';
+import { Link } from 'react-router-dom'
 import DataStore from 'flux/stores/DataStore.js'
 import setSectionLink from 'flux/actions/SetSectionLink.js'
+import ProgressiveImage from 'react-progressive-image'
 
 class Management extends React.Component {
   constructor(props) {
@@ -32,11 +32,6 @@ class Management extends React.Component {
       const clone = context.querySelector('.is-clone');
       let newClone = clone.cloneNode(true);
       context.appendChild(newClone);
-      /*clones.forEach((clone) => {
-        loopHeight += clone.scrollHeight;
-      })*/
-
-      //context.scrollTop = shortContent.offsetHeight + (2 * clones[0].offsetHeight);
     } else if (scrolledFromTop < (offsetHeight + clones[0].offsetHeight)) {
       const removeClones = clones.splice(3);
       removeClones.forEach(removeClone => {
@@ -46,10 +41,10 @@ class Management extends React.Component {
   }
 
   render() {
-    const prio = this.props.dataPriority;
-    const artistsList = [];
-    let page = DataStore.getAll().pages.management[0];
-    let posts = DataStore.getAll().posts;
+    const prio = this.props.dataPriority
+    const artistsList = []
+    let page = DataStore.getAll().pages.management[0]
+    let posts = DataStore.getAll().posts
 
     posts.map((artist,i) => {
       artistsList.push(
@@ -60,9 +55,11 @@ class Management extends React.Component {
           className='artist-link'
           >
           <div className='artist-block' key={i}>
-              <span className='artist-name'>{artist.title}</span>
+            <span className='artist-name'>{artist.title}</span>
             <span className='artist-media content-img'>
-              <img className='artist-intro-image animate' src={artist.intro_image}/>
+              <ProgressiveImage src={artist.intro_image} placeholder={artist.intro_image_thumb}>
+                {(src) => <img className='animate' src={src} alt='an image'/>}
+              </ProgressiveImage>
             </span>
             <div className='intro-text'><p>{artist.intro_text}</p></div>
           </div>
@@ -75,7 +72,7 @@ class Management extends React.Component {
         <div className='section-track' id='management' onScroll={this.handleScroll}>
           <div className='content management-content'>
             <div className='content-short'>
-                <h1 className='title management-title' dangerouslySetInnerHTML={{ __html: page.title }}></h1>
+                <nobr><h1 className='title management-title' dangerouslySetInnerHTML={{ __html: page.title }}></h1></nobr>
               <div className='intro management-intro'><p>{page.headline}</p></div>
             </div>
             <div className='content-long'>

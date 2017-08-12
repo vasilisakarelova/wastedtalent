@@ -23,14 +23,18 @@ foreach($artists as $artist) {
   if($artist->intro_image()->isNotEmpty()):
     $introimage = $artist->intro_image();
     $introimagesrc = $artist->files()->find($introimage)->url();
+    $introimagethumb = $artist->files()->find($introimage)->thumb(['width' => 300])->url();
   else:
     $introimagesrc = null;
+    $introimagethumb = null;
   endif;
+
   $artistgallery = array();
 
   foreach($artist->main_gallery()->yaml() as $image) {
     $artistgallery[] = array(
-      'src' => $artist->files()->find($image)->url()
+      'src' => $artist->files()->find($image)->url(),
+      'thumb' => $artist->files()->find($image)->thumb(['width' => 300])->url()
     );
   }
 
@@ -59,10 +63,22 @@ foreach($artists as $artist) {
 	  $instagram_link = null;
 	endif;
 
-  if($artist->instagram_img()->isNotEmpty()):
-	  $instagram_img = $artist->instagram_img()->url();
+  if($artist->instagram_img_1()->isNotEmpty()):
+	  $instagram_img_1 = $artist->instagram_img_1()->url();
 	else:
-	  $instagram_img = null;
+	  $instagram_img_1 = null;
+	endif;
+
+  if($artist->instagram_img_2()->isNotEmpty()):
+	  $instagram_img_2 = $artist->instagram_img_2()->url();
+	else:
+	  $instagram_img_2 = null;
+	endif;
+
+  if($artist->instagram_img_3()->isNotEmpty()):
+	  $instagram_img_3 = $artist->instagram_img_3()->url();
+	else:
+	  $instagram_img_3 = null;
 	endif;
 
   if($artist->booking_info()->isNotEmpty()):
@@ -76,13 +92,16 @@ foreach($artists as $artist) {
     'title' => (string)$artist->title(),
     'intro_text'  => (string)$artist->intro_text(),
     'intro_image'  => $introimagesrc,
+    'intro_image_thumb' => $introimagethumb,
     'artist_logo'  => $artistlogosrc,
     'main_text'  => (string)$artist->main_text(),
     'main_gallery'  => $artistgallery,
     'twitter_link' => $twitter_link,
     'facebook_link' => $facebook_link,
     'instagram_link' => $instagram_link,
-    'instagram_img' => $instagram_img,
+    'instagram_img_1' => $instagram_img_1,
+    'instagram_img_2' => $instagram_img_2,
+    'instagram_img_3' => $instagram_img_3,
     'booking_info' => $booking_info
   );
 }

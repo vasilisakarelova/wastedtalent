@@ -9,6 +9,7 @@
   line-height: 1.3em;
 	cursor: pointer;
   height: 100%;
+  width: 100vw;
   z-index: 9999;
 
   @media screen and (min-width: 768px) {
@@ -25,6 +26,10 @@
   .section {
     float: left;
     min-height: 100vh;
+  }
+
+  .content-short {
+    height: auto;
   }
 
   .content-long {
@@ -190,12 +195,6 @@ strong {
   padding: 10px;
   line-height: 1em;
   font-weight: normal;
-}
-
-.content-img {
-  &:hover {
-    opacity: 0;
-  }
 }
 
 .slick-list {
