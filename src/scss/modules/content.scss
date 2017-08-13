@@ -21,10 +21,17 @@
 
 #loader-track {
   position: relative;
-  display: block;
   height: 115vh;
-  width: 100%;
-  column-count: 5;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 30vw );
+  grid-auto-flow: row;
+  align-content: space-around;
+  justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(auto-fill, 18vw );
+    grid-gap: 10px;
+  }
 }
 
 #loader-wrapper .loader-section {
@@ -44,10 +51,9 @@
 }
 
 .preloader-item {
-  display: block;
-  position: relative;
-  width: 12vw;
+  width: 20vw;
   margin: 0 auto;
+  padding: 1em;
 
   img {
     position: relative;
@@ -55,6 +61,10 @@
     margin: 0 auto;
     width: 100%;
     height: auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 12vw;
   }
 }
 

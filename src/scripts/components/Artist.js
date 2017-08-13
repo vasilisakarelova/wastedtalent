@@ -30,6 +30,10 @@ class Artist extends React.Component {
     })
   }
 
+  handleLogoClick() {
+    document.querySelector('[data-slider]').style.display = 'flex';
+  }
+
   componentWillUnmount() {
     document.querySelector('[data-slider]').style.display = 'flex';
   }
@@ -167,7 +171,7 @@ class Artist extends React.Component {
           <div className='section-track'>
             <div className='content about-content'>
               <div className='content-short'>
-                <div className='about-media'>
+                <div className='about-media' onClick={this.handleLogoClick}>
                   <Link to={`/`}><img className='about-logo animate' src={logoSrc}/></Link>
                 </div>
               </div>
