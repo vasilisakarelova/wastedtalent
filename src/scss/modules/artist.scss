@@ -147,9 +147,7 @@
 
 .social-media {
   text-align: center;
-  @media screen and (max-width: 768px) {
-    padding-top: 40px;
-  }
+  width: 100%;
 }
 
 .social-link {
@@ -157,11 +155,20 @@
   display: inline-block;
   cursor: pointer;
 
+  &:hover {
+    img {
+      filter: blur(0);
+      opacity: .75;
+      transform: scale(.85);
+    }
+  }
+
   img {
     position: relative;
     display: block;
     width: 80%;
     margin: 0 auto;
+    transition: transform .3s ease-in;
   }
 }
 
@@ -201,6 +208,28 @@
   position: absolute;
   top: 0;
   left: 0;
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.45);
+}
+
+.instagram-post-image {
+  position: relative;
+  width: 15em;
+  height: 15em;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    transform: translate(-50%,-50%);
+  }
+
+  img.portrait {
+    height: auto;
+    width: 100%;
+  }
 }
 
 .instagram-post-options {
@@ -221,9 +250,6 @@
 }
 
 .instagram-post-option {
-  border-radius: 50%;
-  background-color: #fff;
-  color: #000;
   width: 50px;
   height: 50px;
   display: -webkit-box;
@@ -242,12 +268,10 @@
   cursor: pointer;
 }
 
-.instagram-post-image {
-  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.45);
-}
-
 .booking-info {
+  width: 100%;
   padding: 3em 0 0;
+  flex-grow: 1;
 }
 
 .about-artist {

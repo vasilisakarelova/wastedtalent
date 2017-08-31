@@ -1,4 +1,4 @@
-Title: Sara Hartman
+Title: Sara Hartman (US)
 
 ----
 
@@ -10,7 +10,16 @@ Intro-image: sara_hartman_3_credit_marvinjockschat.jpg
 
 ----
 
-Intro-text: Singer & writer of songs Sag Harbor raised/Berlin based. Working on new music for you beautiful humans.
+Intro-text: 
+
+Sara is a Singer-songwriter from Sag Harbour, New York, now living in Berlin.
+With Tobias Kuhn Sara found the perfect counter partner for the conversion of her songs. Electronic sounds and many warm analogue instruments with a voice that will haunt you in a good way. She writes lyrics that describe typical emotions without being flowery phrases.
+A lot happened since her successful songs „Satellite“ and „Monster Lead Me Home“. Sara went on a club tour in Europe and played as supporting artist for Ellie Goulding on her World Tour, as well festivals and feature songs on the Clueso Album or Netsky album. 2017 is the year of sessions and new music like her new single „Dance With A Ghost“.
+<br>
+(link:  http://www.sara-hartman.com  text: Website)
+(link: https://open.spotify.com/artist/1Vx5fzRUd7A1j40B8E3Yqo  text: Spotify)
+(link: https://itunes.apple.com/de/artist/sara-hartman/id440511875  text: Apple Music)
+(link: http://www.songkick.com/artists/5332608-sara-hartman  text: Songkick)
 
 ----
 
@@ -38,3 +47,45 @@ Main-info-group-end:
 ----
 
 Artist-logo: 
+
+----
+
+Facebook-link: https://www.facebook.com/sarahartmanmusic/
+
+----
+
+Instagram-link: https://www.instagram.com/sarahartmanmusic/
+
+----
+
+Twitter-link: https://twitter.com/sarahartman
+
+----
+
+Instagram-img: https://scontent-frx5-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c0.135.1080.1080/20214380_504374196572062_8939453794983346176_n.jpg
+
+----
+
+Booking-info: 
+
+Singer-songwriter from Sag Harbour, New York. Living in Berlin.
+<br><br>
+Booking: <br><br>
+
+(ROW)<br>
+ nick (at) codaagency.com  <br><br>
+
+(North America) <br>
+jbeau (at) unitedtalent.com
+
+----
+
+Instagram-img-1: https://scontent-waw1-1.cdninstagram.com/t51.2885-15/e35/20688532_343665966085222_4032622898194677760_n.jpg
+
+----
+
+Instagram-img-2: https://scontent-waw1-1.cdninstagram.com/t51.2885-15/e35/20214380_504374196572062_8939453794983346176_n.jpg
+
+----
+
+Instagram-img-3: https://scontent-waw1-1.cdninstagram.com/t51.2885-15/e35/20686709_1424337941020931_4822748657042325504_n.jpg

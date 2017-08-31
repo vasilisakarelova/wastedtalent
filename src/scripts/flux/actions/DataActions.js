@@ -4,7 +4,7 @@ import alt   from 'flux/alt/alt.js';
 class DataActions {
 
     constructor() {
-      this.endPoint = 'http://dev.selam-x.com/wastedtalent/admin/api'; //localhost/~vasilisakarelova/wastedtalent/admin/api
+      this.endPoint = 'http://wasted-talent.com/new/admin/api';
     }
 
     // Method for getting data from the provided end point url

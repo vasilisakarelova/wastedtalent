@@ -110,21 +110,16 @@
     height: 3em;
   }
   .content-img {
-    width: calc(100% - .75em);
-    padding-right: .25em;
+    width: 100%;
+    padding-top: .25em;
 
     a {
-      height: 100%;
-      width: 5.2em;
-
-      @media screen and (min-width: 1500px) {
-        width: 5.7em;
-      }
+      height: 40px;
+      width: auto;
+      margin: 0 auto;
     }
 
     img {
-      transform: translateY(-50%);
-      top: 50%;
       position: relative;
     }
   }

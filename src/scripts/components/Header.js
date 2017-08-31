@@ -20,6 +20,9 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
+    let randomInt = Math.round(Math.random())
+    document.querySelector('#loader-wrapper').style.filter = 'invert(' + randomInt + ')'
+
     const preloaderItems = [...document.querySelectorAll('[data-preloader-item]')]
 
     let generateTranslate = (el, e, value) => {
@@ -77,7 +80,7 @@ class Header extends React.Component {
     document.querySelector('[data-slider]').addEventListener('click', (ev) => {
       const element = document.querySelector('.slick-initialized');
       if (window.innerWidth <= 768 && element == null) {
-        $('[data-slider]').slick(opts);
+        $('[data-slider]').slick(opts)
       }
     });
 
@@ -101,8 +104,12 @@ class Header extends React.Component {
 
     window.addEventListener('resize', () => {
       const element = document.querySelector('.slick-initialized');
-      if (window.innerWidth < 769 && element != null) {
-        $('[data-slider]').slick('resize');
+      if (window.innerWidth <= 768 && element != null) {
+        $('[data-slider]').slick('resize')
+      }
+
+      if (window.innerWidth <= 768) {
+        document.querySelector('.track').style.display = 'block'
       }
 
       document.querySelectorAll('.animate').forEach((img) => {
@@ -133,6 +140,17 @@ class Header extends React.Component {
       img.addEventListener('animationend', () => {
         img.classList.remove('strobe')
       })
+    })
+
+    document.querySelectorAll('.inline-img img').forEach((img) => {
+      img.onload = function () {
+        if (img.naturalHeight > 300) {
+          img.style.height = 'auto'
+          img.style.width = '100%'
+        } else {
+          img.style.height = '1.4em';
+        }
+      }
     })
   }
 

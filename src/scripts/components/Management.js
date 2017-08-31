@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import DataStore from 'flux/stores/DataStore.js'
 import setSectionLink from 'flux/actions/SetSectionLink.js'
 import ProgressiveImage from 'react-progressive-image'
@@ -61,7 +61,7 @@ class Management extends React.Component {
                 {(src) => <img className='animate' src={src} alt='an image'/>}
               </ProgressiveImage>
             </span>
-            <div className='intro-text'><p>{artist.intro_text}</p></div>
+            <div className='intro-text'><p dangerouslySetInnerHTML={{ __html: artist.intro_text }}></p></div>
           </div>
         </Link>
       );

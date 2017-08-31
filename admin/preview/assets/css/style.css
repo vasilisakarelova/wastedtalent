@@ -1,0 +1,43 @@
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	color: white;
+	width: 90%;
+	margin: 0;
+	font-size: 18px;
+	padding: 1em 5%;
+	line-height: 1.5em;
+	text-align: left;
+	background: black;
+}
+a {
+	color: white;
+	text-decoration: none;
+}
+.logo {
+	width: 30vw;
+
+	filter: invert(100%);
+}
+.about {
+	margin: 1em 0;
+	max-width: 100%;
+}
+.contact {
+}
+.contact a {
+	color: #666;
+	transition: .3s color linear;
+}
+.contact a:hover {
+	color: white;
+	
+	transition: .3s color linear;
+}
+
+@media screen and (min-width: 800px) {
+	body {
+		font-size: 2vw;
+	}
+	.about {
+	}
+}

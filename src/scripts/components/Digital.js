@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from './Link'
 import DataStore from 'flux/stores/DataStore.js'
 import setSectionLink from 'flux/actions/SetSectionLink.js'
 
@@ -53,7 +53,7 @@ class Digital extends React.Component {
             </div>
             <div className='content-long'>
               <div className='digital-text' dangerouslySetInnerHTML={{ __html: page.text }}></div>
-              <div className='digital-text' dangerouslySetInnerHTML={{ __html: page.d_content.replace(/<p><span class="content-img">/i, '<p class="columns"><span class="content-img">') }}></div>
+              <div className='digital-text' dangerouslySetInnerHTML={{ __html: page.d_content.replace(/<span class="content-img"><a/g, '<span class="content-img"><a class="animate"') }}></div>
             </div>
           </div>
         </div>

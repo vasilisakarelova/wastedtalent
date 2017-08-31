@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom'
 import DataStore from 'flux/stores/DataStore.js'
 import setSectionLink from 'flux/actions/SetSectionLink.js'
 
@@ -31,11 +31,6 @@ class Publishing extends React.Component {
       const clone = context.querySelector('.is-clone');
       let newClone = clone.cloneNode(true);
       context.appendChild(newClone);
-      /*clones.forEach((clone) => {
-        loopHeight += clone.scrollHeight;
-      })*/
-
-      //context.scrollTop = shortContent.offsetHeight + (2 * clones[0].offsetHeight);
     } else if (scrolledFromTop < (offsetHeight + clones[0].offsetHeight)) {
       const removeClones = clones.splice(3);
       removeClones.forEach(removeClone => {
@@ -58,7 +53,7 @@ class Publishing extends React.Component {
             </div>
             <div className='content-long'>
               <div className='publishing-text' dangerouslySetInnerHTML={{ __html: page.text }}></div>
-              <div className='publishing-text' dangerouslySetInnerHTML={{ __html: page.p_content.replace(/<span class="content-img"><a/i, '<span class="inline-img"><a') }}></div>
+              <div className='publishing-text' dangerouslySetInnerHTML={{ __html: page.p_content.replace(/<span class="content-img"><a/g, '<span class="inline-img"><a class="animate"') }}></div>
             </div>
           </div>
         </div>

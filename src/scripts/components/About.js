@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from './Link'
 import DataStore from 'flux/stores/DataStore.js'
 import setSectionLink from 'flux/actions/SetSectionLink.js'
 import $ from 'jquery';
@@ -55,7 +55,7 @@ class About extends React.Component {
             </div>
             <div className='content-long'>
               <div className='about-intro' dangerouslySetInnerHTML={{ __html: page.abouttext }}></div>
-              <div className='about-text' dangerouslySetInnerHTML={{ __html: page.impressumtext }}></div>
+              <div className='about-text' dangerouslySetInnerHTML={{ __html: page.impressumtext.replace(/<span class="content-img"><a/g, '<span class="content-img"><a class="animate"') }}></div>
             </div>
           </div>
         </div>

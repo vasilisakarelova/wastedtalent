@@ -90,11 +90,11 @@ foreach($artists as $artist) {
   $artistarray[] = array(
     'url'   => (string)$artist->slug(),
     'title' => (string)$artist->title(),
-    'intro_text'  => (string)$artist->intro_text(),
+    'intro_text'  => (string)$artist->intro_text()->kirbytext(),
     'intro_image'  => $introimagesrc,
     'intro_image_thumb' => $introimagethumb,
     'artist_logo'  => $artistlogosrc,
-    'main_text'  => (string)$artist->main_text(),
+    'main_text'  => (string)$artist->main_text()->kirbytext(),
     'main_gallery'  => $artistgallery,
     'twitter_link' => $twitter_link,
     'facebook_link' => $facebook_link,
