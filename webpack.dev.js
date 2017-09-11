@@ -1,6 +1,6 @@
-var webpack  			= require('webpack');
-var path				= require('path');
-var HtmlWebpackPlugin 	= require('html-webpack-plugin');
+var webpack = require('webpack');
+var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
 		'babel-polyfill',
 		'webpack-dev-server/client?http://127.0.0.1:8080/', // Specify the local server port
 		'webpack/hot/only-dev-server', // Enable hot reloading
-		'./src/scripts' // This is where Webpack will be looking for the entry index.js file
+		'./src' // This is where Webpack will be looking for the entry index.js file
 	],
 	output: {
 		path: path.join(__dirname, 'build'), // This is used to specify folder for producion bundle

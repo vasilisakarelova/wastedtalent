@@ -14,6 +14,6 @@ export default (props) => {
   }
 
   return (
-    <a href={ props.to } className={ classes } onClick={ handleClick }>{ props.children }</a>
+    <a href={ props.to } className={ classes } data-db={props.db} onClick={ handleClick }>{ props.children }</a>
   )
 }

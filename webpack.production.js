@@ -1,15 +1,11 @@
-var webpack = require('webpack');
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack')
+const path = require('path')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
-	devtool: 'source-map',
-	devServer: {
-		historyApiFallback: true, // This will make the server understand "/some-link" routs instead of "/#/some-link"
-	},
 	entry: [
-		'./src/scripts' // This is where Webpack will be looking for the entry index.js file
+		'./src' // This is where Webpack will be looking for the entry index.js file
 	],
 	output: {
 		path: path.join(__dirname, 'build'), // This is used to specify folder for producion bundle
@@ -84,17 +80,21 @@ module.exports = {
 			_: 'lodash'
 		}),
 
-	    new HtmlWebpackPlugin({
-	        filename: 'index.html',
-	        template: './src/index.html',
-	        hash: true
-	    }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: './src/index.html',
+      hash: false
+    }),
 
-	    new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            },
-            sourceMap: true
-        }),
-	]
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      },
+      sourceMap: true
+    }),
+	],
+	devtool: 'source-map',
+	devServer: {
+		historyApiFallback: true,
+	},
 }

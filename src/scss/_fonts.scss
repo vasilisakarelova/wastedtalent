@@ -21,6 +21,13 @@
 }
 
 @font-face {
+	font-family: 'Courier Prime';
+	src: url('../fonts/courier_prime_italic-webfont.woff2') format('woff2');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
 	font-family: 'Old Standard Regular';
 	src: url('../fonts/OldStandardTT-Regular.eot');
 	src: url('../fonts/OldStandardTT-Regular.eot?#iefix') format('embedded-opentype'),

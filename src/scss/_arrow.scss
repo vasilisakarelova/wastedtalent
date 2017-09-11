@@ -1,0 +1,41 @@
+@mixin arrow-right($color) {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='16' height='40' viewBox='0 0 16 40' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3EVector 3%3C/title%3E%3Cdesc%3ECreated using Figma%3C/desc%3E%3Cg id='Canvas' transform='translate(59 -174)'%3E%3Cg id='Vector 3'%3E%3Cuse xlink:href='%23path0_stroke' transform='translate(-58.5 174.5)'/%3E%3C/g%3E%3C/g%3E%3Cdefs%3E%3Cpath id='path0_stroke' stroke='#{$color}' d='M 14 19.5L 14.4062 19.7916L 14.6155 19.5L 14.4062 19.2084L 14 19.5ZM -0.406162 0.291603L 13.5938 19.7916L 14.4062 19.2084L 0.406162 -0.291603L -0.406162 0.291603ZM 13.5938 19.2084L -0.406162 38.7084L 0.406162 39.2916L 14.4062 19.7916L 13.5938 19.2084Z'/%3E%3C/defs%3E%3C/svg%3E");
+}
+
+@mixin arrow-left($color) {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='16' height='40' viewBox='0 0 16 40' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3EVector 3%3C/title%3E%3Cdesc%3ECreated using Figma%3C/desc%3E%3Cg id='Canvas' transform='translate(60 -174)'%3E%3Cg id='Vector 3'%3E%3Cuse xlink:href='%23path0_stroke' transform='matrix(-1 -1.22465e-16 1.22465e-16 -1 -44.5 213.5)'/%3E%3C/g%3E%3C/g%3E%3Cdefs%3E%3Cpath id='path0_stroke' stroke='#{$color}' d='M 14 19.5L 14.4062 19.7916L 14.6155 19.5L 14.4062 19.2084L 14 19.5ZM -0.406162 0.291603L 13.5938 19.7916L 14.4062 19.2084L 0.406162 -0.291603L -0.406162 0.291603ZM 13.5938 19.2084L -0.406162 38.7084L 0.406162 39.2916L 14.4062 19.7916L 13.5938 19.2084Z'/%3E%3C/defs%3E%3C/svg%3E");
+}
+
+.arrow {
+	position: fixed;
+	top: 48vh;
+	height: 30px;
+	width: 20px;
+	background-position: 50%;
+	background-repeat: no-repeat;
+}
+
+.arrow-left {
+	left: 0;
+
+	&.for-about,
+	&.for-digital {
+		@include arrow-left(#000);
+	}
+	&.for-management,
+	&.for-publishing {
+		@include arrow-left(#fff);
+	}
+}
+.arrow-right {
+	right: 0;
+
+	&.for-about,
+	&.for-digital {
+		@include arrow-right(#000);
+	}
+	&.for-management,
+	&.for-publishing {
+		@include arrow-right(#fff);
+	}
+}

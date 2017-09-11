@@ -1,3 +1,5 @@
+@import '_fonts.scss';
+
 html {
   width: 100%;
   height: 100%;
@@ -8,12 +10,26 @@ html {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Neutral BP';
   margin: 0;
 }
 
-@import '_fonts.scss';
-@import 'modules/about.scss';
-@import 'modules/artist.scss';
-@import 'modules/content.scss';
-@import 'modules/section.scss';
+strong {
+  position: relative;
+  display: table;
+  margin: 1em auto 0;
+  padding: 10px;
+  line-height: 1em;
+  font-weight: normal;
+}
+
+.is-hidden {
+  display: none;
+}
+
+@import '_loader.scss';
+@import '_section.scss';
+@import '_content.scss';
+@import '_about.scss';
+@import '_artist.scss';
+@import '_arrow.scss';

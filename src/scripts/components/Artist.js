@@ -1,110 +1,49 @@
-import {Link} from 'react-router-dom'
-import { TweenMax } from 'gsap';
-import DataStore from 'flux/stores/DataStore.js'
-import DataActions from 'flux/actions/DataActions.js'
+import React from 'react'
+import Draggable from 'react-draggable'
 import ProgressiveImage from 'react-progressive-image'
-import Draggable from 'react-draggable';
-import boxShadow from 'flux/actions/boxShadow.js';
+import classes from 'classnames'
 
-import facebook from '../../assets/facebook.png';
-import instagram from '../../assets/instagram.png';
-import twitter from '../../assets/twitter.png';
+import Link from '../helpers/Link'
 
-import closeBtn from '../../assets/access-denied.png';
-import instagramBtn from '../../assets/instagram-logo.png';
+import facebook from '../../assets/facebook.png'
+import instagram from '../../assets/instagram.png'
+import twitter from '../../assets/twitter.png'
 
-import $ from 'jquery';
+import closeBtn from '../../assets/access-denied.png'
+import instagramBtn from '../../assets/instagram-logo.png'
 
-class Artist extends React.Component {
-  constructor(...args) {
-    super(...args);
-    this.state= { show: false }
-  }
+const openOptions = (ev) => {
+  ev.currentTarget.querySelector('.instagram-post-options-container').style.display = 'block';
+}
 
-  componentDidMount() {
-    document.querySelector('[data-slider]').style.display = 'none';
-    document.querySelectorAll('.animate').forEach((img) => {
-      img.addEventListener('mouseleave', () => {
-        img.classList.add('strobe')
-      })
-      img.addEventListener('animationend', () => {
-        img.classList.remove('strobe')
-      })
-    })
+const hideOptions = (ev) => {
+  ev.currentTarget.querySelector('.instagram-post-options-container').style.display = 'none';
+}
 
-    const instagramBtns = [...document.querySelectorAll('.instagram-post-options-container')]
-    instagramBtns.forEach((instagramBtn) => {
-      instagramBtn.addEventListener('mousemove', (ev) => boxShadow(ev, instagramBtn, 'rgba(0,0,0,0.45)'));
-    })
+const closeInstagram = (ev) => {
+  const instagramFrame = ev.target.closest('[data-instagram-frame]')
+  document.querySelector('[data-instagram-parent]').removeChild(instagramFrame)
+}
 
-    document.querySelectorAll('.instagram-post-image img').forEach(img => {
-      if (img.height > img.width) {
-        img.classList.add('portrait')
-      }
-    })
-  }
+export default ({ db, logo, artists }) => {
+  const artistsList = []
+  let posts = artists
+  let artistLogo = []
 
-  handleLogoClick() {
-    document.querySelector('[data-slider]').style.display = 'flex';
-  }
+  const gallery = db.main_gallery.map((img,i) => {
+    return(
+      <span className='content-img' key={i}>
+        <ProgressiveImage src={img.src} placeholder={img.thumb}>
+          {(src) => <img src={src} className='artist-gallery-item'/>}
+        </ProgressiveImage>
+      </span>
+    )
+  })
 
-  componentWillUnmount() {
-    document.querySelector('[data-slider]').style.display = 'flex';
-  }
-
-  componentWillEnter (callback) {
-    const el = this.container;
-    TweenMax.fromTo(el, 0.3, {y: 100, opacity: 0}, {y: 0, opacity: 1, onComplete: callback});
-  }
-
-  componentWillLeave (callback) {
-    const el = this.container;
-    TweenMax.fromTo(el, 0.3, {y: 0, opacity: 1}, {y: -100, opacity: 0, onComplete: callback});
-  }
-
-  openOptions(ev) {
-    ev.currentTarget.querySelector('.instagram-post-options-container').style.display = 'block';
-  }
-
-  hideOptions(ev) {
-    ev.currentTarget.querySelector('.instagram-post-options-container').style.display = 'none';
-  }
-
-  closeInstagram(ev) {
-    const instagramFrame = ev.target.closest('[data-instagram-frame]')
-    document.querySelector('[data-instagram-parent]').removeChild(instagramFrame)
-  }
-
-  render() {
-    let logoSrc = DataStore.getAll().pages.about[0].logo;
-
-    const artistsList = [];
-    let page = DataStore.getAll().pages.management[0];
-    let posts = DataStore.getAll().posts;
-    let logo = DataStore.getAll().pages.about[0].logo;
-    let artistLogo = [];
-    const filter = this.props.match.path.split('/').pop();
-    const artist = posts.filter(post => {
-      if(post['url'] == filter) {
-        return post;
-      }
-    });
-    const gallery = artist[0].main_gallery.map((img,i) => {
-      return(
-        <span className='content-img' key={i}>
-          <ProgressiveImage src={img.src} placeholder={img.thumb}>
-            {(src) => <img src={src} className='artist-gallery-item'/>}
-          </ProgressiveImage>
-        </span>
-      );
-    });
-    const artistLogoSrc = artist[0].artist_logo;
-    const instagramImg = artist[0].artist_img;
-
-    if (artistLogoSrc) {
-      artistLogo.push(<span className='title artist-logo'><img alt='artist logo' src={artistLogoSrc} /></span>);
+    if (db.artist_logo) {
+      artistLogo.push(<span className='title artist-logo'><img alt='artist logo' src={db.artist_logo} /></span>);
     } else {
-      artistLogo.push(<h1 className='title artist-title' dangerouslySetInnerHTML={{ __html: artist[0].title }}></h1>);
+      artistLogo.push(<h1 className='title artist-title' dangerouslySetInnerHTML={{ __html: db.title }}></h1>);
     }
 
     posts.map((artist,i) => {
@@ -124,16 +63,16 @@ class Artist extends React.Component {
     return (
       <div className='about-artist' data-instagram-parent>
         <Draggable>
-          <div className='box' data-instagram-frame style={{position: 'absolute', top: `${Math.random() * (60 - 10) + 10}vh`, left: `${Math.random() * 33}vw` }} onMouseOver={ ev => this.openOptions(ev) } onMouseLeave={ ev => this.hideOptions(ev) }>
+          <div className='box' data-instagram-frame style={{position: 'absolute', top: `${Math.random() * (60 - 10) + 10}vh`, left: `${Math.random() * 33}vw` }} onMouseOver={ ev => openOptions(ev) } onMouseLeave={ ev => hideOptions(ev) }>
             <div className="instagram-post-image" style={{ transform: 'rotate(-7deg)' }}>
-              <img src={artist[0].instagram_img_1} />
+              <img src={db.instagram_img_1} />
             </div>
             <div className="instagram-post-options-container" style={{ transform: 'rotate(-7deg)' }}>
               <div className="instagram-post-options">
-                <span className='instagram-post-option' onClick={this.closeInstagram.bind(this)}>
+                <span className='instagram-post-option' onClick={ev => closeInstagram(ev)}>
                   <img src={closeBtn} />
                 </span>
-                <a target="_blank" href={artist[0].instagram_link}>
+                <a target="_blank" href={db.instagram_link}>
                   <span className='instagram-post-option'>
                     <img src={instagramBtn} />
                   </span>
@@ -143,16 +82,16 @@ class Artist extends React.Component {
           </div>
         </Draggable>
         <Draggable>
-          <div className='box' data-instagram-frame style={{position: 'absolute', top: `${Math.random() * (60 - 10) + 10}vh`, left: `${Math.random() * (66 - 33) + 33}vw` }} onMouseOver={ ev => this.openOptions(ev) } onMouseLeave={ ev => this.hideOptions(ev) }>
+          <div className='box' data-instagram-frame style={{position: 'absolute', top: `${Math.random() * (60 - 10) + 10}vh`, left: `${Math.random() * (66 - 33) + 33}vw` }} onMouseOver={ ev => openOptions(ev) } onMouseLeave={ ev => hideOptions(ev) }>
             <div className="instagram-post-image" style={{ transform: 'rotate(13deg)' }}>
-              <img src={artist[0].instagram_img_2} />
+              <img src={db.instagram_img_2} />
             </div>
             <div className="instagram-post-options-container" style={{ transform: 'rotate(13deg)' }}>
               <div className="instagram-post-options">
-                <span className='instagram-post-option' onClick={this.closeInstagram.bind(this)}>
+                <span className='instagram-post-option' onClick={ev => closeInstagram(ev)}>
                   <img src={closeBtn} />
                 </span>
-                <a target="_blank" href={artist[0].instagram_link}>
+                <a target="_blank" href={db.instagram_link}>
                   <span className='instagram-post-option'>
                     <img src={instagramBtn} />
                   </span>
@@ -162,16 +101,16 @@ class Artist extends React.Component {
           </div>
         </Draggable>
         <Draggable>
-          <div className='box' data-instagram-frame style={{position: 'absolute', top: `${Math.random() * (60 - 10) + 10}vh`, left: `${Math.random() * (70 - 66) + 66}vw` }} onMouseOver={ ev => this.openOptions(ev) } onMouseLeave={ ev => this.hideOptions(ev) }>
+          <div className='box' data-instagram-frame style={{position: 'absolute', top: `${Math.random() * (60 - 10) + 10}vh`, left: `${Math.random() * (70 - 66) + 66}vw` }} onMouseOver={ ev => openOptions(ev) } onMouseLeave={ ev => hideOptions(ev) }>
             <div className="instagram-post-image" style={{ transform: 'rotate(-7deg)' }}>
-              <img src={artist[0].instagram_img_3} />
+              <img src={db.instagram_img_3} />
             </div>
             <div className="instagram-post-options-container" style={{ transform: 'rotate(-7deg)' }}>
               <div className="instagram-post-options">
-                <span className='instagram-post-option' onClick={this.closeInstagram.bind(this)}>
+                <span className='instagram-post-option' onClick={ev => closeInstagram(ev)}>
                   <img src={closeBtn} />
                 </span>
-                <a target="_blank" href={artist[0].instagram_link}>
+                <a target="_blank" href={db.instagram_link}>
                   <span className='instagram-post-option'>
                     <img src={instagramBtn} />
                   </span>
@@ -184,16 +123,16 @@ class Artist extends React.Component {
           <div className='section-track'>
             <div className='content about-content'>
               <div className='content-short'>
-                <div className='about-media' onClick={this.handleLogoClick}>
-                  <Link to={`/`}><img className='about-logo animate' src={logoSrc}/></Link>
+                <div className='about-media'>
+                  <Link to={`/`}><img className='about-logo animate' src={logo}/></Link>
                 </div>
               </div>
               <div className='social-media'>
-                <a className='social-link' target='_blank' href={artist[0].facebook_link} ><img className='animate' src={facebook} /></a>
-                <a className='social-link' target='_blank' href={artist[0].instagram_link} ><img className='animate' src={instagram} /></a>
-                <a className='social-link' target='_blank' href={artist[0].twitter_link} ><img className='animate' src={twitter} /></a>
+                <a className='social-link' target='_blank' href={db.facebook_link} ><img className='animate' src={facebook} /></a>
+                <a className='social-link' target='_blank' href={db.instagram_link} ><img className='animate' src={instagram} /></a>
+                <a className='social-link' target='_blank' href={db.twitter_link} ><img className='animate' src={twitter} /></a>
               </div>
-              <div className='booking-info' dangerouslySetInnerHTML={{ __html: artist[0].booking_info }}></div>
+              <div className='booking-info' dangerouslySetInnerHTML={{ __html: db.booking_info }}></div>
               <div className='content-long'>
                 {artistsList}
               </div>
@@ -210,15 +149,12 @@ class Artist extends React.Component {
           </Link>
           {artistLogo[0]}
           <div className='artist-content'>
-            <div className='artist-story' dangerouslySetInnerHTML={{ __html: artist[0].main_text }}></div>
+            <div className='artist-story' dangerouslySetInnerHTML={{ __html: db.main_text }}></div>
           </div>
           <div className='artist-gallery'>
             { gallery }
           </div>
         </div>
-    </div>
-    );
-  }
+      </div>
+    )
 }
-
-export default Artist;
