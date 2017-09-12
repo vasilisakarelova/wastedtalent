@@ -48,13 +48,15 @@
   line-height: 2em;
   text-transform: uppercase;
   text-align: center;
-
-  @media screen and (max-width: 768px) {
-    padding-top: 20px;
-  }
 }
 
 .section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  
   @media screen and (min-width: 768px) {
     padding: 25px;
   }
@@ -79,10 +81,6 @@
   display: block;
   height: 100%;
   width: auto;
-
-  @media screen and (min-width: 768px) {
-    display: flex;
-  }
 }
 
 .sections-wrapper {
@@ -93,7 +91,7 @@
   min-height: 100vh;
   overflow: hidden;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 769px) {
     height: 100vh;
     display: flex;
     flex-direction: row;

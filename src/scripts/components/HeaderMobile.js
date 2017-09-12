@@ -93,6 +93,7 @@ export default class extends Component {
         'is-container ': !this.state.menu,
         'is-hidden': this.props.artistOpen
       })}>
+        <Link to='/' className={`close_icon for-${this.state.path}`}></Link>
         { (this.state.menu) ? menu : this.state.container }
         { (this.state.path !== '') ? nav[this.state.path] : null }
       </div>

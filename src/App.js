@@ -99,6 +99,7 @@ export default class extends Component {
     page('/management', (ctx) => {
       self.setState({
         slide: <Management db={this.state.pages['management'][0]} slide='1' />,
+        container: null,
         path: ctx.path,
         artistOpen: false
       })

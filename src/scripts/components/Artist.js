@@ -120,6 +120,7 @@ export default ({ db, logo, artists }) => {
           </div>
         </Draggable>
         <div className='section about-section secondary' id='artist' style={{ width: '25vw', position: 'absolute', left: 0, top: 0 }}>
+          <Link to={`/management`} className='close_icon for-about'></Link>
           <div className='section-track'>
             <div className='content about-content'>
               <div className='content-short'>
