@@ -78,6 +78,7 @@ export default class extends Component {
     }, 4000)
 
     window.addEventListener('resize', ::this.handleResize)
+    window.addEventListener('orientationchange', ::this.handleResize)
 
     const self = this
     page.base('/new')
@@ -138,7 +139,11 @@ export default class extends Component {
     this.setState({
       isMobile: (window.innerWidth < 769) ? true : false
     })
-    if (!this.state.isMobile && this.state.artistsOpen) page.redirect('/')
+    if (!this.state.isMobile) {
+      if (!this.state.artistOpen) {
+        page.redirect('/')
+      }
+    }
   }
 
   render() {
